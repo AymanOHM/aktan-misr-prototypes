@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  <url><loc>https://www.sehely.com/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.sehely.com/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.sehely.com/ar/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.sehely.com/"/>
+  </url>
+  <url><loc>https://www.sehely.com/private-label/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.sehely.com/private-label/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.sehely.com/ar/private-label/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.sehely.com/private-label/"/>
+  </url>
+  <url><loc>https://www.sehely.com/products/</loc></url>
+  <url><loc>https://www.sehely.com/products/bath-towels/</loc></url>
+  <url><loc>https://www.sehely.com/products/bathrobes/</loc></url>
+  <url><loc>https://www.sehely.com/products/kitchen-towels/</loc></url>
+  <url><loc>https://www.sehely.com/products/beach-towels/</loc></url>
+  <url><loc>https://www.sehely.com/products/pareo/</loc></url>
+  <url><loc>https://www.sehely.com/hotels/</loc></url>
+  <url><loc>https://www.sehely.com/distributors/</loc></url>
+  <url><loc>https://www.sehely.com/manufacturing/</loc></url>
+  <url><loc>https://www.sehely.com/quality/</loc></url>
+  <url><loc>https://www.sehely.com/about/</loc></url>
+  <url><loc>https://www.sehely.com/catalogue/</loc></url>
+  <url><loc>https://www.sehely.com/quote/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.sehely.com/quote/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.sehely.com/ar/quote/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.sehely.com/quote/"/>
+  </url>
+  <url><loc>https://www.sehely.com/contact/</loc></url>
+  <url><loc>https://www.sehely.com/ar/</loc>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.sehely.com/ar/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.sehely.com/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.sehely.com/"/>
+  </url>
+  <url><loc>https://www.sehely.com/ar/private-label/</loc>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.sehely.com/ar/private-label/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.sehely.com/private-label/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.sehely.com/private-label/"/>
+  </url>
+  <url><loc>https://www.sehely.com/ar/quote/</loc>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.sehely.com/ar/quote/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.sehely.com/quote/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.sehely.com/quote/"/>
+  </url>
+</urlset>

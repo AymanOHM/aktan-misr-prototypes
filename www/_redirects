@@ -1,0 +1,15 @@
+# Old sehely.com WordPress URLs -> new pages (301)
+/ page_id=12 /about/ 301
+/ page_id=14 /about/ 301
+/ page_id=16 /about/ 301
+/ page_id=24 /about/ 301
+/ page_id=22 /contact/ 301
+/ post_type=job /about/ 301
+/ cat=3 /about/ 301
+/ post_type=product /products/ 301
+/ product=hotel-towels /hotels/ 301
+/ product=bath-towel1 /products/bath-towels/ 301
+/ product=bath-robe1 /products/bathrobes/ 301
+/ product=beach-towels1 /products/beach-towels/ 301
+/ product=kitchen-towels1 /products/kitchen-towels/ 301
+/ product=pareo /products/pareo/ 301
