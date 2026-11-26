@@ -21,12 +21,12 @@
     const items = $$(sel).filter((el) => el.getBoundingClientRect().top > innerHeight * 0.9);
     items.forEach((el) => {
       const sibs = [...el.parentElement.children].filter((c) => items.includes(c));
-      el.style.setProperty('--i', String(Math.min(sibs.indexOf(el), 5)));
+      el.style.setProperty('--i', String(sibs.indexOf(el) % 3));
       el.classList.add('reveal');
     });
     const io = new IntersectionObserver((entries) => entries.forEach((e) => {
       if (e.isIntersecting) { e.target.classList.add('is-in'); io.unobserve(e.target); }
-    }), { rootMargin: '0px 0px -8% 0px' });
+    }), { rootMargin: '0px 0px -12% 0px', threshold: 0.05 });
     items.forEach((el) => io.observe(el));
   }
 

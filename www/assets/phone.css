@@ -13,9 +13,9 @@ html { -webkit-tap-highlight-color: transparent; }
 .btn:active { transform: translateY(1px) scale(0.98); }
 .btn--solid:active { background: var(--color-ink-2); }
 .link:active { color: var(--color-accent); text-decoration-thickness: 2px; }
-.chips label { transition: border-color var(--dur-short) var(--ease-out), background-color var(--dur-short) var(--ease-out), transform var(--dur-micro) var(--ease-out); }
+.chips label { transition: border-color var(--dur-short) var(--ease-soft), background-color var(--dur-short) var(--ease-soft), transform var(--dur-short) var(--ease-soft); }
 .chips label:active { transform: scale(0.96); }
-.families a { transition: transform var(--dur-micro) var(--ease-out); }
+.families a { transition: transform var(--dur-short) var(--ease-soft); }
 .families a:active { transform: scale(0.98); }
 .faq summary:active { color: var(--color-accent); }
 .menu-toggle, .langs a, .foot li a, .bar nav a:not(.btn) { transition: opacity var(--dur-micro) var(--ease-out), color var(--dur-short) var(--ease-out), border-color var(--dur-short) var(--ease-out); }
@@ -27,19 +27,22 @@ html { -webkit-tap-highlight-color: transparent; }
 }
 
 /* Menu opens with a short drop, FAQ answers and form messages fade in */
-@keyframes drop-in { from { opacity: 0; transform: translateY(-8px); } to { opacity: 1; transform: none; } }
-.bar nav.is-open { animation: drop-in var(--dur-short) var(--ease-out); }
-.faq details[open] > div { animation: drop-in var(--dur-short) var(--ease-out); }
-.form-status:not(:empty) { animation: drop-in var(--dur-short) var(--ease-out); }
+/* Motion is slow and even: a soft ease, short distances, nothing that snaps */
+:root { --ease-soft: cubic-bezier(0.33, 0, 0.2, 1); --dur-reveal: 1100ms; --dur-open: 450ms; }
+@keyframes drop-in { from { opacity: 0; transform: translateY(-4px); } to { opacity: 1; transform: none; } }
+@keyframes fade-in { from { opacity: 0; } to { opacity: 1; } }
+.bar nav.is-open { animation: drop-in var(--dur-open) var(--ease-soft); }
+.faq details[open] > div { animation: fade-in var(--dur-open) var(--ease-soft); }
+.form-status:not(:empty) { animation: fade-in var(--dur-open) var(--ease-soft); }
 
 /* The one reveal: blocks below the fold rise in once. The script adds .reveal, so without it nothing hides. */
-.js .reveal { opacity: 0; transform: translateY(16px); transition: opacity var(--dur-long) var(--ease-out), transform var(--dur-long) var(--ease-out); transition-delay: calc(var(--i, 0) * 70ms); }
+.js .reveal { opacity: 0; transform: translateY(8px); transition: opacity var(--dur-reveal) var(--ease-soft), transform var(--dur-reveal) var(--ease-soft); transition-delay: calc(var(--i, 0) * 120ms); }
 .js .reveal.is-in { opacity: 1; transform: none; }
 @media (prefers-reduced-motion: reduce) { .js .reveal { opacity: 1; transform: none; } .families a:active { transform: none; } }
 
 /* Spec sheet: a changed line flashes once */
 @keyframes ink-in { from { opacity: 0.35; } to { opacity: 1; } }
-.sheet dd.changed { animation: ink-in 500ms var(--ease-out); color: var(--color-accent); }
+.sheet dd.changed { animation: ink-in 700ms var(--ease-soft); }
 
 /* ---- Phone layout ---- */
 @media (max-width: 40rem) {
