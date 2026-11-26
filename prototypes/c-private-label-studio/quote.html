@@ -1,0 +1,156 @@
+<!doctype html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Build a specification and request a quote | Aktan Misr</title>
+<meta name="description" content="Choose product, weave, colour, label and quantity; the specification sheet fills in as you go and goes to export sales. Prototype C.">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:opsz,wght@6..96,400&family=Geist:wght@400;500&family=Noto+Naskh+Arabic:wght@400&family=IBM+Plex+Sans+Arabic:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+<script>document.documentElement.classList.add('js');</script>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<div class="top" data-retract>
+  <div class="banner">
+    <div class="container">
+      <span>Prototype C, The Private-Label Studio. <a href="../index.html">All three prototypes</a></span>
+      <div class="lang" role="group" aria-label="Language" data-ar-label="اللغة">
+        <button type="button" data-lang="en" aria-pressed="true">EN</button>
+        <button type="button" data-lang="ar" aria-pressed="false" lang="ar">عربي</button>
+        <button type="button" data-lang="it" aria-pressed="false" lang="it">IT</button>
+        <button type="button" data-lang="fr" aria-pressed="false" lang="fr">FR</button>
+        <button type="button" data-lang="de" aria-pressed="false" lang="de">DE</button>
+      </div>
+    </div>
+    <div class="container banner__status"><p class="lang-status" role="status" data-lang-status></p></div>
+  </div>
+  <header class="bar">
+    <div class="container">
+      <a class="wordmark" href="index.html" aria-label="Aktan Misr Textile and Dyeing, home" data-ar-label="أكتان مصر للغزل والصباغة، الرئيسية">
+        <img src="../../assets/brand/mark.png" width="140" height="128" alt="">
+        <span class="wordmark-name"><b class="wordmark-text">AKTAN MISR</b><span>Textile &amp; Dyeing S.A.E. | Sehely Textile &amp; Dyeing</span></span>
+      </a>
+      <button class="menu-toggle" type="button" data-menu-toggle aria-controls="site-nav" aria-expanded="false"><span data-ar="القائمة">Menu</span></button>
+      <nav id="site-nav" aria-label="Main">
+        <a href="products.html" data-ar="المنتجات">Range</a>
+        <a href="index.html#capabilities" data-ar="قدرات المصنع">Capabilities</a>
+        <a href="index.html#buyers" data-ar="المشترون">Buyers</a>
+        <a href="index.html#since" data-ar="منذ 1956">Since 1956</a>
+        <a class="btn btn--primary" href="quote.html" aria-current="page" data-ar="ابنِ مواصفاتك">Build a specification</a>
+      </nav>
+    </div>
+  </header>
+</div>
+<main id="main">
+  <form class="container builder" data-rfq data-endpoint="" novalidate aria-labelledby="b-h">
+    <aside class="summary" aria-labelledby="b-h">
+      <h1 id="b-h" data-ar="ابنِ مواصفاتك">Build a specification</h1>
+      <div class="sheet" aria-live="polite" aria-label="Your specification so far" data-ar-label="مواصفاتك حتى الآن">
+        <div class="cell cell--lead"><small data-ar="المنتج">Product</small><b data-out="product" class="empty" data-ar="لم يُختر بعد">Not chosen</b></div>
+        <div class="cell"><small data-ar="النسيج">Weave</small><b data-out="weave" class="empty" data-ar="لم يُختر بعد">Not chosen</b></div>
+        <div class="cell"><small data-ar="اللون">Colour</small><b data-out="colour" class="empty" data-ar="لم يُختر بعد">Not chosen</b></div>
+        <div class="cell"><small data-ar="الكمية">Quantity</small><b data-out="quantity" class="empty" data-ar="لم يُختر بعد">Not chosen</b></div>
+      </div>
+      <p><button class="btn btn--primary" type="submit" data-ar="أرسل المواصفات">Send the specification</button></p>
+      <p class="hint" data-ar="يرد فريق مبيعات التصدير بالسعر عبر البريد الإلكتروني.">Export sales prices the sheet and replies by email. <span class="fill">reply time</span></p>
+    </aside>
+
+    <div>
+      <fieldset class="step" data-required-group data-msg="Choose at least one product." aria-describedby="e-product">
+        <legend data-ar="1. المنتج">1. Product</legend>
+        <div class="opts">
+          <input type="checkbox" name="product" id="p1" value="bath-towels" data-name="Bath towels"><label for="p1" data-ar="مناشف حمّام ووجه">Bath and face towels</label>
+          <input type="checkbox" name="product" id="p2" value="hotel-towels" data-name="Hotel towels"><label for="p2" data-ar="مناشف فندقية">Hotel towels</label>
+          <input type="checkbox" name="product" id="p3" value="bathrobes" data-name="Bathrobes"><label for="p3" data-ar="أرواب حمّام">Bathrobes</label>
+          <input type="checkbox" name="product" id="p4" value="kitchen-towels" data-name="Kitchen towels"><label for="p4" data-ar="مناشف مطبخ">Kitchen towels</label>
+          <input type="checkbox" name="product" id="p5" value="beach-towels" data-name="Beach towels"><label for="p5" data-ar="مناشف شاطئ">Beach towels</label>
+          <input type="checkbox" name="product" id="p6" value="pareo" data-name="Pareo"><label for="p6" data-ar="باريو">Pareo</label>
+        </div><p class="error" id="e-product" aria-live="polite"></p>
+      </fieldset>
+
+      <fieldset class="step">
+        <legend data-ar="2. النسيج">2. Weave</legend>
+        <div class="opts">
+          <input type="radio" name="weave" id="w1" value="Terry"><label for="w1" data-ar="تيري">Terry</label>
+          <input type="radio" name="weave" id="w2" value="Jacquard terry"><label for="w2" data-ar="تيري جاكار">Jacquard terry</label>
+          <input type="radio" name="weave" id="w3" value="Waffle"><label for="w3" data-ar="وافل">Waffle</label>
+          <input type="radio" name="weave" id="w4" value="Flat"><label for="w4" data-ar="مسطح">Flat</label>
+          <input type="radio" name="weave" id="w5" value="Dobby"><label for="w5" data-ar="دوبي">Dobby</label>
+          <input type="radio" name="weave" id="w6" value="Advise me"><label for="w6" data-ar="انصحوني">Advise me</label>
+        </div>
+      </fieldset>
+
+      <fieldset class="step">
+        <legend data-ar="3. اللون والتصميم">3. Colour and design</legend>
+        <div class="fields">
+          <div class="field"><label for="shade" data-ar="مرجع اللون">Colour reference</label><input id="shade" name="colour" aria-describedby="shade-h" autocomplete="off"><p class="hint" id="shade-h" data-ar="مثل رمز بانتون أو اكتب &quot;أبيض&quot;.">A Pantone TCX code, or write white.</p></div>
+          <div class="field"><label for="design" data-ar="التصميم">Design</label><select id="design" name="design"><option data-ar="سادة">Plain</option><option data-ar="جاكار بتصميمي">Jacquard, my artwork</option><option data-ar="جاكار من تصميمكم">Jacquard, your design department</option><option data-ar="حافة دوبي">Dobby border</option></select></div>
+        </div>
+        <div class="opts" style="margin-top: var(--space-md)" role="group" aria-label="Customise">
+          <input type="checkbox" name="custom" id="k1" value="labels"><label for="k1" data-ar="ملصقات خاصة">Own labels</label>
+          <input type="checkbox" name="custom" id="k2" value="packaging"><label for="k2" data-ar="تغليف للبيع بالتجزئة">Retail packaging</label>
+        </div>
+      </fieldset>
+
+      <fieldset class="step">
+        <legend data-ar="4. الكمية والتسليم">4. Quantity and delivery</legend>
+        <div class="fields">
+          <div class="field"><label for="qty" data-ar="الكمية لكل طلب">Quantity per order</label><select id="qty" name="quantity"><option value="" data-ar="غير محدد بعد">Not sure yet</option><option>Under 1,000 pieces</option><option>1,000 to 5,000 pieces</option><option>5,000 to 20,000 pieces</option><option>Over 20,000 pieces</option></select><p class="hint">Minimum order <span class="fill">MOQ to confirm</span></p></div>
+          <div class="field"><label for="when" data-ar="موعد التسليم">Delivery needed by</label><input id="when" name="delivery" type="month"></div>
+          <div class="field full"><label for="msg" data-ar="ملاحظات">Sizes, weights, anything else</label><textarea id="msg" name="message"></textarea></div>
+        </div>
+      </fieldset>
+
+      <fieldset class="step">
+        <legend data-ar="5. بياناتك">5. Where to send the price</legend>
+        <div class="fields">
+          <div class="field"><label for="name" data-ar="الاسم">Your name</label><input id="name" name="name" autocomplete="name" required aria-describedby="e-name" data-msg="Enter your name."><p class="error" id="e-name" aria-live="polite"></p></div>
+          <div class="field"><label for="company" data-ar="الشركة">Company</label><input id="company" name="company" autocomplete="organization" required aria-describedby="e-company" data-msg="Enter your company name."><p class="error" id="e-company" aria-live="polite"></p></div>
+          <div class="field"><label for="email" data-ar="البريد الإلكتروني للعمل">Work email</label><input id="email" name="email" type="email" autocomplete="email" required aria-describedby="e-email" data-msg="Write it as name@company.com."><p class="error" id="e-email" aria-live="polite"></p></div>
+          <div class="field"><label for="country" data-ar="الدولة">Country</label><select id="country" name="country" autocomplete="country-name" required aria-describedby="e-country" data-msg="Choose the country you import to."><option value="" data-ar="اختر">Choose</option><option>Italy</option><option>United Kingdom</option><option>France</option><option>Greece</option><option>Germany</option><option>Australia</option><option value="other" data-ar="دولة أخرى">Another country</option></select><p class="error" id="e-country" aria-live="polite"></p></div>
+          <div class="field full"><label for="buyer" data-ar="نوع الشراء">You buy as</label><select id="buyer" name="buyer"><option data-ar="علامة خاصة أو علامة تجارية">Private label or brand</option><option data-ar="فنادق وضيافة">Hotel or hospitality</option><option data-ar="موزّع أو تاجر جملة">Distributor or wholesaler</option></select></div>
+          <label class="consent full"><input type="checkbox" name="consent" required aria-describedby="e-consent" data-msg="Tick this so we may reply to you."><span data-ar="أوافق على أن تستخدم أكتان مصر هذه البيانات للرد على طلبي.">Aktan Misr may use these details to answer this request.</span></label>
+          <p class="error full" id="e-consent" aria-live="polite"></p>
+        </div>
+      </fieldset>
+
+      <div class="form-actions"><button class="btn btn--primary" type="submit" data-ar="أرسل المواصفات">Send the specification</button><p class="form-status" role="status" data-form-status></p></div>
+    </div>
+  </form>
+</main>
+<footer class="colophon">
+  <div class="container">
+    <div>
+      <p><strong>Aktan Misr Textile &amp; Dyeing S.A.E.</strong>, previously Sehely Textile &amp; Dyeing. Industrial Zone, El-Mahalla El-Kubra 31911, Egypt. +20 40 2441596. <a href="mailto:sehely@sehely.com">sehely@sehely.com</a>. Export sales <span class="fill">email to confirm</span>.</p>
+      <p class="credits" data-credits>Photograph: <a href="https://commons.wikimedia.org/wiki/File:Nabburg_Freilandmuseum_Kolbeckhof_Webstuhl-20190823-RM-115330.jpg">Ermell</a> (CC BY-SA 4.0, Wikimedia Commons), stand-in.</p>
+    </div>
+    <nav aria-label="Footer"><a href="products.html">Range index</a><a href="index.html#capabilities">Capabilities</a><a href="index.html#buyers">Hotels and distributors</a><a href="quote.html">Build a specification</a><a href="https://www.linkedin.com/company/aktan-misr-textile-dyeing-s-a-e-sehely-textile-dyeing/">LinkedIn</a></nav>
+  </div>
+</footer>
+<script src="proto.js"></script>
+<script src="retract.js"></script>
+<script>
+/* The sheet fills in as the buyer chooses. Without script the form still works as a plain form. */
+(() => {
+  const form = document.querySelector('form[data-rfq]');
+  const out = (k) => form.querySelector(`[data-out="${k}"]`);
+  const set = (k, text) => { const el = out(k); if (!el) return; const empty = !text; el.classList.toggle('empty', empty); if (!empty) { el.textContent = text; el.dataset.en = text; el.dataset.ar = text; } else { el.textContent = document.documentElement.lang === 'ar' ? 'لم يُختر بعد' : 'Not chosen'; } };
+  const sync = () => {
+    const prods = [...form.querySelectorAll('input[name="product"]:checked')].map((i) => i.nextElementSibling.textContent.trim());
+    set('product', prods.join(', '));
+    const w = form.querySelector('input[name="weave"]:checked');
+    set("weave", w ? w.nextElementSibling.textContent.trim() : "");
+    set('colour', form.colour.value.trim());
+    set('quantity', form.quantity.value);
+  };
+  form.addEventListener('input', sync);
+  form.addEventListener("change", sync);
+  document.querySelectorAll("[data-lang]").forEach((b) => b.addEventListener("click", () => setTimeout(sync)));
+  sync();
+})();
+</script>
+</body>
+</html>

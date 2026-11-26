@@ -1,0 +1,127 @@
+<!doctype html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Request a quote | Aktan Misr Textile &amp; Dyeing</title>
+<meta name="description" content="Ask export sales for a quote on towels, bathrobes or pareo in 100% Egyptian cotton. Prototype A.">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Libre+Caslon+Display&family=Hanken+Grotesk:wght@400;500&family=Noto+Naskh+Arabic:wght@400;500&family=IBM+Plex+Sans+Arabic:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+<script>document.documentElement.classList.add('js');</script>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<div class="proto-note" role="note"><div class="container"><span>Prototype A, quote request.</span><a href="../index.html">All three prototypes</a></div></div>
+<header class="masthead">
+  <div class="container">
+    <div class="masthead__util">
+      <div class="lang" role="group" aria-label="Language" data-ar-label="اللغة">
+        <button type="button" data-lang="en" aria-pressed="true">EN</button>
+        <button type="button" data-lang="ar" aria-pressed="false" lang="ar">عربي</button>
+        <button type="button" data-lang="it" aria-pressed="false" lang="it">IT</button>
+        <button type="button" data-lang="fr" aria-pressed="false" lang="fr">FR</button>
+        <button type="button" data-lang="de" aria-pressed="false" lang="de">DE</button>
+      </div>
+      <a class="util-contact" href="mailto:sehely@sehely.com">sehely@sehely.com</a>
+    </div>
+    <p class="lang-status" role="status" data-lang-status></p>
+    <div class="masthead__brand">
+      <a class="wordmark" href="index.html" aria-label="Aktan Misr Textile and Dyeing, home" data-ar-label="أكتان مصر للغزل والصباغة، الرئيسية">
+        <img src="../../assets/brand/mark.png" width="140" height="128" alt="">
+        <span class="wordmark__name"><b class="wordmark-text">AKTAN MISR</b><span>Textile &amp; Dyeing S.A.E. | Sehely Textile &amp; Dyeing</span></span>
+      </a>
+      <button class="menu-toggle" type="button" data-menu-toggle aria-controls="site-nav" aria-expanded="false"><span data-ar="القائمة">Menu</span></button>
+    </div>
+    <nav class="masthead__nav" id="site-nav" aria-label="Main">
+      <a href="products.html" data-ar="المنتجات">The range</a>
+      <a href="index.html#process" data-ar="كيف نصنع">How it is made</a>
+      <a href="index.html#private-label" data-ar="العلامة الخاصة">Private label</a>
+      <a href="index.html#evidence" data-ar="الجودة">Quality</a>
+      <a href="index.html#heritage" data-ar="من نحن">Since 1956</a>
+      <a class="btn" href="quote.html" aria-current="page" data-ar="اطلب عرض سعر">Request a quote</a>
+    </nav>
+  </div>
+</header>
+<main id="main">
+  <div class="container quote">
+    <div class="quote__side">
+      <div>
+        <h1 data-ar="اطلب عرض سعر">Request a quote</h1>
+        <p class="lead" style="margin-top: var(--space-md)" data-ar="أخبرنا بما تحتاجه، وسيرد عليك فريق مبيعات التصدير.">Tell us what you need. Export sales replies by email.</p>
+      </div>
+      <dl class="close__facts">
+        <div><dt data-ar="مبيعات التصدير">Export sales</dt><dd><span class="fill">sales email to confirm</span></dd></div>
+        <div><dt>WhatsApp</dt><dd><span class="fill">number to confirm</span></dd></div>
+      </dl>
+    </div>
+
+    <form class="form" data-rfq data-endpoint="" novalidate aria-labelledby="rfq-h">
+      <h2 id="rfq-h" class="visually-hidden">Quote request form</h2>
+      <div class="field"><label for="name" data-ar="الاسم">Your name</label><input id="name" name="name" autocomplete="name" required aria-describedby="name-err" data-msg="Enter your name."><p class="error" id="name-err" aria-live="polite"></p></div>
+      <div class="field"><label for="company" data-ar="الشركة">Company</label><input id="company" name="company" autocomplete="organization" required aria-describedby="company-err" data-msg="Enter your company name."><p class="error" id="company-err" aria-live="polite"></p></div>
+      <div class="field"><label for="email" data-ar="البريد الإلكتروني للعمل">Work email</label><input id="email" name="email" type="email" autocomplete="email" required aria-describedby="email-err" data-msg="Write it as name@company.com."><p class="error" id="email-err" aria-live="polite"></p></div>
+      <div class="field"><label for="country" data-ar="الدولة">Country</label>
+        <select id="country" name="country" autocomplete="country-name" required aria-describedby="country-err" data-msg="Choose the country you import to.">
+          <option value="" data-ar="اختر">Choose</option><option>Italy</option><option>United Kingdom</option><option>France</option><option>Greece</option><option>Germany</option><option>Australia</option><option value="other" data-ar="دولة أخرى">Another country</option>
+        </select><p class="error" id="country-err" aria-live="polite"></p></div>
+
+      <fieldset class="full" role="radiogroup" data-required-group data-msg="Choose how you buy." aria-describedby="buyer-err">
+        <legend data-ar="نوع الشراء">You buy as</legend>
+        <div class="checks">
+          <input type="radio" name="buyer" id="b-pl" value="private-label"><label for="b-pl" data-ar="علامة خاصة أو علامة تجارية">Private label or brand</label>
+          <input type="radio" name="buyer" id="b-hotel" value="hotel"><label for="b-hotel" data-ar="فنادق وضيافة">Hotel or hospitality</label>
+          <input type="radio" name="buyer" id="b-dist" value="distributor"><label for="b-dist" data-ar="موزّع أو تاجر جملة">Distributor or wholesaler</label>
+        </div><p class="error" id="buyer-err" aria-live="polite"></p>
+      </fieldset>
+
+      <fieldset class="full" data-required-group data-msg="Choose at least one product." aria-describedby="product-err">
+        <legend data-ar="المنتجات">Products</legend>
+        <div class="checks">
+          <input type="checkbox" name="product" id="p1" value="bath-towels"><label for="p1" data-ar="مناشف حمّام ووجه">Bath and face towels</label>
+          <input type="checkbox" name="product" id="p2" value="hotel-towels"><label for="p2" data-ar="مناشف فندقية">Hotel towels</label>
+          <input type="checkbox" name="product" id="p3" value="bathrobes"><label for="p3" data-ar="أرواب حمّام">Bathrobes</label>
+          <input type="checkbox" name="product" id="p4" value="kitchen-towels"><label for="p4" data-ar="مناشف مطبخ">Kitchen towels</label>
+          <input type="checkbox" name="product" id="p5" value="beach-towels"><label for="p5" data-ar="مناشف شاطئ">Beach towels</label>
+          <input type="checkbox" name="product" id="p6" value="pareo"><label for="p6" data-ar="باريو">Pareo</label>
+        </div><p class="error" id="product-err" aria-live="polite"></p>
+      </fieldset>
+
+      <div class="field"><label for="qty" data-ar="الكمية التقديرية">Estimated quantity per order</label>
+        <select id="qty" name="quantity"><option value="" data-ar="غير محدد بعد">Not sure yet</option><option>Under 1,000 pieces</option><option>1,000 to 5,000 pieces</option><option>5,000 to 20,000 pieces</option><option>Over 20,000 pieces</option></select><p class="error"></p></div>
+      <div class="field"><label for="when" data-ar="موعد التسليم المطلوب">Delivery needed by</label><input id="when" name="delivery" type="month"><p class="error"></p></div>
+
+      <fieldset class="full">
+        <legend data-ar="ما الذي تريد تخصيصه">What to customise</legend>
+        <div class="checks">
+          <input type="checkbox" name="custom" id="c1" value="design"><label for="c1" data-ar="تصميم جاكار خاص">Own jacquard design</label>
+          <input type="checkbox" name="custom" id="c2" value="colour"><label for="c2" data-ar="ألوان مخصّصة">Custom colours</label>
+          <input type="checkbox" name="custom" id="c3" value="labels"><label for="c3" data-ar="ملصقات خاصة">Own labels</label>
+          <input type="checkbox" name="custom" id="c4" value="packaging"><label for="c4" data-ar="تغليف للبيع بالتجزئة">Retail packaging</label>
+        </div>
+      </fieldset>
+
+      <div class="field full"><label for="msg" data-ar="تفاصيل الطلب">Sizes, weights or anything else</label><textarea id="msg" name="message" aria-describedby="msg-hint"></textarea><p class="hint" id="msg-hint" data-ar="اختياري. يمكنك إرسال ملفات التصميم بعد ردّنا.">Optional. Artwork can follow once we reply.</p></div>
+
+      <label class="consent full"><input type="checkbox" name="consent" required aria-describedby="consent-err" data-msg="Tick this so we may reply to you."><span data-ar="أوافق على أن تستخدم أكتان مصر هذه البيانات للرد على طلبي.">Aktan Misr may use these details to answer this request.</span></label>
+      <p class="error full" id="consent-err" aria-live="polite"></p>
+
+      <div class="form-actions full"><button class="btn" type="submit" data-ar="أرسل الطلب">Send request</button><p class="form-status" role="status" data-form-status></p></div>
+    </form>
+  </div>
+</main>
+<footer class="colophon">
+  <div class="container colophon__grid">
+    <div>
+      <p><strong>Aktan Misr Textile &amp; Dyeing S.A.E.</strong>, previously Sehely Textile &amp; Dyeing. Industrial Zone, from Noaman El-Asar, El-Mahalla El-Kubra 31911, Egypt. Telephone +20 40 2441596. Email <a href="mailto:sehely@sehely.com">sehely@sehely.com</a>. Open Saturday to Friday, 9:00 to 17:00.</p>
+      <p class="credits" data-credits>Photographs: <a href="https://commons.wikimedia.org/wiki/File:Cloth-roll.jpg">Samanthafara</a> (CC BY-SA 4.0), <a href="https://commons.wikimedia.org/wiki/File:Yarn_2015-365-24_(16172648689).jpg">Sally Wilson</a> (CC BY-SA 2.0), <a href="https://commons.wikimedia.org/wiki/File:Nabburg_Freilandmuseum_Kolbeckhof_Webstuhl-20190823-RM-115330.jpg">Ermell</a> (CC BY-SA 4.0), <a href="https://commons.wikimedia.org/wiki/File:Drying_the_cotton_silk_fabric.jpg">Sopyaylynn</a> (CC BY-SA 4.0), <a href="https://commons.wikimedia.org/wiki/File:Woman_sewing_a_face_mask_with_a_Singer_machine_14.jpg">Tadeáš Bednarz</a> (CC BY-SA 4.0), all Wikimedia Commons, stand-ins. Product photographs from sehely.com.</p>
+    </div>
+    <nav aria-label="Footer">
+      <a href="products.html">The range</a><a href="index.html#process">How it is made</a><a href="index.html#private-label">Private label</a><a href="index.html#evidence">Quality</a><a href="quote.html">Request a quote</a><a href="https://www.linkedin.com/company/aktan-misr-textile-dyeing-s-a-e-sehely-textile-dyeing/">LinkedIn</a>
+    </nav>
+  </div>
+</footer>
+<script src="proto.js"></script>
+</body>
+</html>

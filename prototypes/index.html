@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Aktan Misr redesign: three prototypes for review</title>
+<meta name="description" content="Three design explorations for the Aktan Misr Textile and Dyeing website, for comparison. Not the live site.">
+<style>
+  :root { --paper: oklch(96% 0.01 80); --paper-2: oklch(92% 0.015 80); --ink: oklch(20% 0.012 60); --muted: oklch(46% 0.014 62); --rule: oklch(83% 0.02 80); --accent: oklch(36% 0.11 266); --focus: oklch(45% 0.15 266); --font: "Hanken Grotesk", ui-sans-serif, system-ui, sans-serif; }
+  * { box-sizing: border-box; }
+  html, body { overflow-x: clip; }
+  body { margin: 0; background: var(--paper); color: var(--ink); font: 16px/1.55 var(--font); }
+  .wrap { max-width: 1200px; margin: 0 auto; padding: 48px 24px 96px; }
+  h1 { font-size: clamp(2rem, 4vw, 3rem); line-height: 1.05; margin: 0 0 12px; font-weight: 500; }
+  p.lead { color: var(--muted); max-width: 60ch; margin: 0 0 48px; }
+  .cards { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 24px; }
+  .card { border-top: 2px solid var(--ink); padding-top: 16px; display: grid; gap: 12px; align-content: start; }
+  .card img { width: 100%; height: auto; display: block; outline: 1px solid var(--rule); }
+  .card h2 { font-size: 1.4rem; margin: 0; font-weight: 500; }
+  .card p { margin: 0; color: var(--muted); }
+  .card ul { margin: 0; padding-inline-start: 18px; }
+  a { color: var(--ink); text-decoration-color: var(--accent); text-underline-offset: 0.2em; }
+  a:hover { text-decoration-thickness: 2px; }
+  a:focus-visible { outline: 2px solid var(--focus); outline-offset: 2px; }
+  table { width: 100%; border-collapse: collapse; margin-top: 56px; font-size: 15px; }
+  caption { text-align: start; font-size: 1.4rem; font-weight: 500; padding-bottom: 12px; }
+  th, td { text-align: start; padding: 12px 12px 12px 0; border-bottom: 1px solid var(--rule); vertical-align: top; }
+  thead th { border-bottom: 2px solid var(--ink); color: var(--muted); font-weight: 500; }
+  .table-wrap { overflow-x: auto; }
+  @media (max-width: 60rem) { .cards { grid-template-columns: minmax(0, 1fr); } }
+</style>
+</head>
+<body>
+<main class="wrap">
+  <h1>Aktan Misr: three design prototypes</h1>
+  <p class="lead">Design explorations for review, not the live site. Each prototype has the same three pages (home, range and quote request), the same content and the same Arabic right-to-left demo. Dashed boxes mark facts still to supply.</p>
+
+  <div class="cards">
+    <article class="card">
+      <img src="review/a-fibre-to-finish-home-1440.png" width="1440" height="900" alt="Prototype A home page: ecru masthead and a full-bleed loom photograph with the headline">
+      <h2>A. From Fibre to Finish</h2>
+      <p>Heritage mill, precise. The process is the story.</p>
+      <ul><li><a href="a-fibre-to-finish/index.html">Home</a></li><li><a href="a-fibre-to-finish/products.html">Range with filters</a></li><li><a href="a-fibre-to-finish/quote.html">Quote request</a></li></ul>
+    </article>
+    <article class="card">
+      <img src="review/b-linen-cupboard-home-1440.png" width="1440" height="900" alt="Prototype B home page: limewash paper with the bathrobe photograph matted like a print">
+      <h2>B. The Hotel Linen Cupboard</h2>
+      <p>Premium and quiet. The product as an object.</p>
+      <ul><li><a href="b-linen-cupboard/index.html">Home</a></li><li><a href="b-linen-cupboard/products.html">Collections</a></li><li><a href="b-linen-cupboard/quote.html">Quote request</a></li></ul>
+    </article>
+    <article class="card">
+      <img src="review/c-private-label-studio-home-1440.png" width="1440" height="900" alt="Prototype C home page: an example specification sheet in large Didone type above the headline">
+      <h2>C. The Private-Label Studio</h2>
+      <p>A tool for buyers. The specification is the hero.</p>
+      <ul><li><a href="c-private-label-studio/index.html">Home</a></li><li><a href="c-private-label-studio/products.html">Range index</a></li><li><a href="c-private-label-studio/quote.html">Specification builder</a></li></ul>
+    </article>
+  </div>
+
+  <div class="table-wrap">
+  <table>
+    <caption>How they compare</caption>
+    <thead><tr><th scope="col">Criterion</th><th scope="col">A. Fibre to Finish</th><th scope="col">B. Linen Cupboard</th><th scope="col">C. Private-Label Studio</th></tr></thead>
+    <tbody>
+      <tr><th scope="row">Brand fit</th><td>Strongest. Since 1956, Dyeing and vertical control are the spine.</td><td>Good. Premium lift, but heritage is a side note.</td><td>Good. Modern and exact. Heritage appears as a single statement.</td></tr>
+      <tr><th scope="row">Buyer clarity</th><td>Clear process, range, spec rows and paths.</td><td>Product-led. Specs sit in cards one click deep.</td><td>Clearest for private label. The builder qualifies leads.</td></tr>
+      <tr><th scope="row">Credibility</th><td>High once real factory photos replace the stand-ins.</td><td>Depends most on a professional product shoot.</td><td>Relies on type and specs, so it needs few photos but real MOQs and weights.</td></tr>
+      <tr><th scope="row">Signature</th><td>Pinned process: yarn, weaving, dyeing, finishing, packing.</td><td>Collection as dyed cotton sample strips.</td><td>Specification sheet that fills in as you choose.</td></tr>
+      <tr><th scope="row">Responsive</th><td>Pinned photo becomes inline photos per stage.</td><td>Strips become a horizontal rail.</td><td>Builder summary moves above the steps.</td></tr>
+      <tr><th scope="row">Build effort</th><td>Medium</td><td>Medium (photography is the cost)</td><td>Higher (builder logic, quote pipeline)</td></tr>
+    </tbody>
+  </table>
+  </div>
+</main>
+</body>
+</html>
