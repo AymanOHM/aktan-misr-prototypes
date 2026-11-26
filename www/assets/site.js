@@ -15,6 +15,21 @@
     matchMedia('(min-width: 75.01rem)').addEventListener('change', (m) => { if (m.matches) set(false); });
   });
 
+  /* The one reveal: blocks below the fold rise in once. Skipped for reduced motion. */
+  if (!matchMedia('(prefers-reduced-motion: reduce)').matches && 'IntersectionObserver' in window) {
+    const sel = '.head, .split > *, .steps li, .families > *, .buyers > *, .year > *, .evidence, .range, .faq, .cat, .plate';
+    const items = $$(sel).filter((el) => el.getBoundingClientRect().top > innerHeight * 0.9);
+    items.forEach((el) => {
+      const sibs = [...el.parentElement.children].filter((c) => items.includes(c));
+      el.style.setProperty('--i', String(Math.min(sibs.indexOf(el), 5)));
+      el.classList.add('reveal');
+    });
+    const io = new IntersectionObserver((entries) => entries.forEach((e) => {
+      if (e.isIntersecting) { e.target.classList.add('is-in'); io.unobserve(e.target); }
+    }), { rootMargin: '0px 0px -8% 0px' });
+    items.forEach((el) => io.observe(el));
+  }
+
   /* Quote form: prefill, live specification sheet, validation */
   const form = document.querySelector('form[data-quote]');
   if (!form) return;
@@ -43,7 +58,12 @@
         if (el && el.tagName === 'SELECT') text = el.value ? el.options[el.selectedIndex].text : '';
         else if (el && 'value' in el) text = el.value.trim();
       }
-      dd.textContent = text;
+      if (dd.textContent !== text) {
+        dd.textContent = text;
+        dd.classList.toggle('changed', false);
+        void dd.offsetWidth; // restart the flash
+        dd.classList.toggle('changed', Boolean(text));
+      }
     });
   };
   form.addEventListener('input', update);

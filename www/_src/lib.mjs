@@ -140,6 +140,7 @@ ${hreflang}
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 ${fonts}
 ${page.preload ? `<link rel="preload" as="image" type="image/webp" imagesrcset="/img/${page.preload}-800.webp 800w, /img/${page.preload}-1600.webp 1600w" imagesizes="(min-width: 90rem) 660px, (min-width: 60rem) 45vw, 100vw">\n` : ''}<link rel="stylesheet" href="/assets/styles.css">
+<link rel="stylesheet" href="/assets/phone.css">
 <script>document.documentElement.classList.add('js');</script>
 ${ld}
 </head>

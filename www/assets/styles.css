@@ -9,6 +9,7 @@
 /* Hallmark · waive 77 · the privacy page is a draft notice in prose · its text is legal copy the company writes, so it stays one column */
 /* Hallmark · waive 49b · Bath and face towels wraps at 320px in the range table · the family name is the row head and two lines stay readable on a narrow phone */
 /* Hallmark · dismissed 25 · the 1956 line beside the year is a statement set at section size, not running prose */
+/* Hallmark · dismissed F8 · the sticky header and the quote page's sticky specification sheet are the only two sticky parts, and the sheet appears only on the quote page at desktop width */
 /* Hallmark · waive 79 · inner pages open on a page-head banner · the first section of each inner page follows at the head padding */
 @import url("./tokens.css");
 @import url("./base.css");

@@ -1,0 +1,71 @@
+/* Phone pass (2026-11-26): fewer lines, clearer fields, press feedback, motion.
+   Imported by styles.css after the base system. Colours and fonts only through tokens. */
+html { -webkit-tap-highlight-color: transparent; }
+
+/* Fields: boxed on every size, so an input never reads as one more rule */
+.field input, .field select, .field textarea { padding: var(--space-xs) var(--space-sm); border: 1px solid var(--color-muted); border-radius: var(--radius-pill); background: var(--color-card); }
+.field input:hover, .field select:hover, .field textarea:hover { border-color: var(--color-ink-2); }
+
+/* Status pills are solid, so they never look like a dashed placeholder */
+.status--todo { border: 0; background: var(--color-paper-3); color: var(--color-ink-2); }
+
+/* Press feedback (touch has no hover) */
+.btn:active { transform: translateY(1px) scale(0.98); }
+.btn--solid:active { background: var(--color-ink-2); }
+.link:active { color: var(--color-accent); text-decoration-thickness: 2px; }
+.chips label { transition: border-color var(--dur-short) var(--ease-out), background-color var(--dur-short) var(--ease-out), transform var(--dur-micro) var(--ease-out); }
+.chips label:active { transform: scale(0.96); }
+.families a { transition: transform var(--dur-micro) var(--ease-out); }
+.families a:active { transform: scale(0.98); }
+.faq summary:active { color: var(--color-accent); }
+.menu-toggle, .langs a, .foot li a, .bar nav a:not(.btn) { transition: opacity var(--dur-micro) var(--ease-out), color var(--dur-short) var(--ease-out), border-color var(--dur-short) var(--ease-out); }
+.menu-toggle:active, .langs a:active, .foot li a:active, .bar nav a:not(.btn):active { opacity: 0.6; }
+@media (hover: none) {
+  .btn:not(.btn--solid):hover { background: transparent; color: var(--color-ink); }
+  .btn--solid:hover { background: var(--color-ink); }
+  .link:hover { color: var(--color-ink); text-decoration-thickness: 1px; }
+}
+
+/* Menu opens with a short drop, FAQ answers and form messages fade in */
+@keyframes drop-in { from { opacity: 0; transform: translateY(-8px); } to { opacity: 1; transform: none; } }
+.bar nav.is-open { animation: drop-in var(--dur-short) var(--ease-out); }
+.faq details[open] > div { animation: drop-in var(--dur-short) var(--ease-out); }
+.form-status:not(:empty) { animation: drop-in var(--dur-short) var(--ease-out); }
+
+/* The one reveal: blocks below the fold rise in once. The script adds .reveal, so without it nothing hides. */
+.js .reveal { opacity: 0; transform: translateY(16px); transition: opacity var(--dur-long) var(--ease-out), transform var(--dur-long) var(--ease-out); transition-delay: calc(var(--i, 0) * 70ms); }
+.js .reveal.is-in { opacity: 1; transform: none; }
+@media (prefers-reduced-motion: reduce) { .js .reveal { opacity: 1; transform: none; } .families a:active { transform: none; } }
+
+/* Spec sheet: a changed line flashes once */
+@keyframes ink-in { from { opacity: 0.35; } to { opacity: 1; } }
+.sheet dd.changed { animation: ink-in 500ms var(--ease-out); color: var(--color-accent); }
+
+/* ---- Phone layout ---- */
+@media (max-width: 40rem) {
+  .page-head { border-bottom: 0; padding-block: var(--space-2xl) var(--space-md); }
+  /* Steps: number beside the text, no rule above each one */
+  .steps { row-gap: var(--space-lg); }
+  .steps li { display: grid; grid-template-columns: 2.5rem minmax(0, 1fr); column-gap: var(--space-sm); border-top: 0; padding-top: 0; }
+  .steps li::before { grid-row: 1 / span 2; margin: 0; font-size: var(--text-2xl); }
+  /* Ruled facts: label over value, one light rule between, no dark top line */
+  .ruled { border-top: 0; }
+  .ruled > div { padding-block: var(--space-sm); }
+  .ruled > div:last-child { border-bottom: 0; }
+  .ruled dd { font-size: var(--text-lg); }
+  /* Evidence: each row on a tinted panel instead of rules */
+  .evidence tr { border-bottom: 0; background: var(--color-paper-2); padding: var(--space-md); margin-bottom: var(--space-xs); }
+  .buyers article { border-top: 0; padding-top: 0; }
+  /* Product families: two across, square */
+  .families { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--space-lg) var(--space-sm); }
+  .families .ph { aspect-ratio: 1 / 1; }
+  .families h3 { font-size: var(--text-lg); margin-top: var(--space-xs); }
+  .families p { font-size: var(--text-xs); }
+  /* Form: group heads without a dark rule; the chips already show the choices, so the sheet steps aside */
+  .form h2 { border-top: 0; padding-top: var(--space-md); }
+  .quote .sheet { display: none; }
+  .foot li a { min-height: 44px; }
+  .faq summary { font-size: var(--text-lg); }
+  .bleed { min-height: 56svh; }
+  .year .year__num { font-size: 6rem; }
+}
