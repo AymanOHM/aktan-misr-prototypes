@@ -55,8 +55,8 @@ const FAM_PHOTO = {
   bathrobes: ['robe-woman-bed', 'A woman in an orange check hooded bathrobe sitting on a bed', '50% 35%'],
   'hotel-towels': ['stock-hotel-jacquard', 'White hotel towels with a woven border, folded in a stack', '50% 50%'],
   'kitchen-towels': ['kitchen-green-check', 'Green check and jacquard kitchen towels on a wooden box', '50% 50%'],
-  'beach-towels': ['beach-green-chair', 'A green printed velour beach towel over a poolside chair', '50% 45%'],
-  pareo: ['pareo-red-rail', 'A red and white striped pareo hanging on a pool railing', '60% 50%'],
+  'beach-towels': ['beach-sun-closeup', 'Close-up of a velour beach towel printed with an orange sun and footprints on pink', '50% 40%'],
+  pareo: ['pareo-lilac-fringe', 'A lilac and white striped pareo with aqua bands and knotted fringe, close up', '50% 50%'],
 };
 
 p.body = `
@@ -103,8 +103,8 @@ ${closeHero('sun', false)}
   </div>
 </section>
 
-<section class="bleed" aria-label="Beach towels by the pool">
-  ${real('beach-lounger-flame', 'A flame-coloured velour beach towel draped over a white sun lounger by a pool', { cls: 'ph-bleed', pos: '50% 55%', sizes: '100vw', tint: true })}
+<section class="bleed" aria-label="Jacquard and waffle kitchen towels">
+  ${real('kitchen-aloe-set', 'Aloe-print jacquard and waffle kitchen towels, one gift-wrapped, beside a stone teapot and cups', { cls: 'ph-bleed', pos: '50% 45%', sizes: '100vw', tint: true })}
   <div class="container"><div class="plate"><p>Woven, dyed and finished in El‑Mahalla El‑Kubra.</p><small>About 10 tons of finished goods a day.</small></div></div>
 </section>
 
@@ -141,8 +141,8 @@ ${closeHero('sun', false)}
     <label><input type="radio" name="hero" value="sun"><span>Sun</span></label>
   </fieldset>
   <fieldset><legend>Photo tint</legend>
-    <label><input type="radio" name="tint" value="auto"><span>Bloom + wash</span></label>
-    <label><input type="radio" name="tint" value="wash" checked><span>Page wash</span></label>
+    <label><input type="radio" name="tint" value="auto" checked><span>Bloom + wash</span></label>
+    <label><input type="radio" name="tint" value="wash"><span>Page wash</span></label>
     <label><input type="radio" name="tint" value="bloom"><span>Bloom</span></label>
     <label><input type="radio" name="tint" value="off"><span>Off</span></label>
   </fieldset>

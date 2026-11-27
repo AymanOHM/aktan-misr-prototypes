@@ -702,5 +702,23 @@
   "hue": 30,
   "chroma": 0.056,
   "light": 0.792
+ },
+ "pareo-lilac-fringe": {
+  "w": 1166,
+  "h": 1458,
+  "widths": [
+   800,
+   1166
+  ],
+  "hue": 300,
+  "chroma": 0.08,
+  "light": 0.8,
+  "crop": {
+   "of": "pareo-lilac-poolside",
+   "left": 2649,
+   "top": 1780,
+   "width": 1166,
+   "height": 1458
+  }
  }
 }

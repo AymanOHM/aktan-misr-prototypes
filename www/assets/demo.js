@@ -4,8 +4,8 @@
   const root = document.documentElement;
   const form = document.querySelector('[data-demo]');
   const q = new URLSearchParams(location.search);
-  const state = { hero: q.get('hero') || 'mosaic', tint: q.get('tint') || 'wash' };
-  root.dataset.bloom = q.get('bloom') || '4';
+  const state = { hero: q.get('hero') || 'mosaic', tint: q.get('tint') || 'auto' };
+  root.dataset.bloom = q.get('bloom') || '3';
 
   // Colours per key photo, from its sampled hue (h) and chroma (c).
   const hosts = [...document.querySelectorAll('[data-tint]')];
