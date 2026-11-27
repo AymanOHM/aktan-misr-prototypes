@@ -44,7 +44,7 @@ const mosaicHero = (first) => `<section class="hero hero--mosaic" data-hero="mos
     <div class="hero__mosaic" data-tint="200 0.065">
       ${real('robe-couple-sofa', 'A couple in matching teal striped bathrobes on a white sofa', { cls: 'm m1', eager: first, pos: '50% 30%', sizes: '(min-width: 60rem) 28vw, 50vw' })}
       ${real('bath-teal-dots', 'A folded teal bath towel with a band of woven dots', { cls: 'm m2', eager: first, sizes: '(min-width: 60rem) 24vw, 50vw' })}
-      ${real('pareo-aqua-chair', 'An aqua and lime striped pareo with fringed ends over a poolside chair', { cls: 'm m3', eager: first, pos: '50% 40%', sizes: '(min-width: 60rem) 24vw, 50vw' })}
+      ${real('stock-hotel-spa', 'Plush white hotel towels folded in a stack, close up', { cls: 'm m3', eager: first, pos: '50% 50%', sizes: '(min-width: 60rem) 24vw, 50vw' })}
     </div>
   </div>
 </section>`;
@@ -120,7 +120,7 @@ ${closeHero('sun', false)}
   <div class="container">
     <div class="head"><h2 id="buyers-h">Also for hotels and distributors</h2></div>
     <div class="buyers">
-      <article>${real('stock-hotel-spa', 'White terry towels folded in soft light', { pos: '50% 50%' })}<h3>Hotels and spas</h3><p>White or house-colour towels and robes, double stitched for laundering.</p><a class="link" href="/hotels/">Hotel towels</a></article>
+      <article>${real('stock-hotel-bedside', 'White hotel towels with soap laid on a made bed', { pos: '50% 60%' })}<h3>Hotels and spas</h3><p>White or house-colour towels and robes, double stitched for laundering.</p><a class="link" href="/hotels/">Hotel towels</a></article>
       <article>${real('fair-stand-shelves', 'Shelves of folded towels at the Aktan Misr trade-fair stand', { pos: '50% 50%' })}<h3>Distributors</h3><p>Catalogue lines or your own, in volume, from one mill.</p><a class="link" href="/distributors/">For distributors</a></article>
     </div>
   </div>
@@ -141,6 +141,7 @@ ${closeHero('sun', false)}
     <label><input type="radio" name="hero" value="sun"><span>Sun</span></label>
   </fieldset>
   <fieldset><legend>Photo tint</legend>
+    <label><input type="radio" name="tint" value="auto"><span>Bloom + wash</span></label>
     <label><input type="radio" name="tint" value="wash" checked><span>Page wash</span></label>
     <label><input type="radio" name="tint" value="bloom"><span>Bloom</span></label>
     <label><input type="radio" name="tint" value="off"><span>Off</span></label>

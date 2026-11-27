@@ -30,15 +30,36 @@
 
 [data-tint] { position: relative; isolation: isolate; }
 [data-tint]::before {
-  content: ""; position: absolute; inset: -24% -18%; z-index: -1; pointer-events: none;
+  content: ""; position: absolute; inset: var(--reach-y, -24%) var(--reach-x, -18%); z-index: -1; pointer-events: none;
+  --b1: oklch(var(--bl, 80%) min(calc(var(--bc) * 1.1), 0.14) var(--bh) / var(--ba, 0.75));
+  --b2: oklch(calc(var(--bl, 80%) + 6%) min(calc(var(--bc) * 0.8), 0.11) calc(var(--bh) + 16) / calc(var(--ba, 0.75) - 0.15));
   background:
-    radial-gradient(46% 50% at 36% 40%, var(--bloom, transparent) 0%, transparent 72%),
-    radial-gradient(40% 44% at 68% 64%, var(--bloom-2, transparent) 0%, transparent 74%),
-    radial-gradient(30% 30% at 56% 22%, var(--bloom-2, transparent) 0%, transparent 70%);
-  filter: blur(44px); opacity: 0; transition: opacity var(--tint-dur) var(--ease-soft, ease);
+    radial-gradient(46% 50% at 36% 40%, var(--b1) 0%, transparent 72%),
+    radial-gradient(40% 44% at 68% 64%, var(--b2) 0%, transparent 74%),
+    radial-gradient(30% 30% at 56% 22%, var(--b2) 0%, transparent 70%);
+  filter: blur(var(--blur, 44px)); opacity: 0; transform: scale(var(--s0, 1));
+  transition: opacity var(--bloom-dur, var(--tint-dur)) var(--ease-soft, ease), transform var(--bloom-dur, var(--tint-dur)) var(--ease-soft, ease);
 }
-.bleed > [data-tint]::before { inset: -14% 0; }
-[data-tint-mode="bloom"] [data-tint].is-tinted::before { opacity: 1; }
+.bleed > [data-tint]::before { inset: var(--reach-y, -14%) 0; }
+[data-tint-mode="bloom"] [data-tint].is-tinted::before, [data-tint-mode="auto"] [data-tint].is-tinted.is-open::before { opacity: 1; transform: none; }
+/* Bloom configurations under test (?bloom=1|2|3): 1 = first demo; 2 = stronger, reaches further and spreads out
+   from the photo as it fades in; 3 = 2 with the colour pulled lighter so it stays a glow, not a stain. */
+[data-bloom="2"] [data-tint] { --reach-y: -48%; --reach-x: -38%; --blur: 64px; --bl: 78%; --ba: 0.9; --s0: 0.78; --bloom-dur: 1600ms; }
+[data-bloom="3"] [data-tint] { --reach-y: -48%; --reach-x: -38%; --blur: 72px; --bl: 86%; --ba: 0.9; --s0: 0.78; --bloom-dur: 1600ms; }
+/* 4 = travels: the colour leaves the photo toward the open side of the layout (text column) and settles there. */
+[data-bloom="4"] [data-tint] { --blur: 56px; --bl: 90%; --ba: 0.9; --bloom-dur: 1800ms; }
+[data-bloom="4"] [data-tint]:not(.ph-bleed)::before {
+  inset: -30% -95%;
+  background:
+    radial-gradient(34% 58% at calc(50% + var(--side, -1) * 24%) 46%, var(--b1) 0%, transparent 74%),
+    radial-gradient(26% 40% at calc(50% + var(--side, -1) * 33%) 66%, var(--b2) 0%, transparent 72%);
+  transform: translateX(calc(var(--side, -1) * -14%)) scale(0.9);
+}
+[data-bloom="4"] .bleed > [data-tint]::before { inset: -34% 0; }
+[data-bloom="2"] .bleed > [data-tint]::before, [data-bloom="3"] .bleed > [data-tint]::before { inset: -30% 0; }
+
+/* the bloom never paints over the staging note */
+.stage-note { position: relative; z-index: var(--z-raised); }
 
 /* ---------- demo panel ---------- */
 .demo-panel { position: fixed; inset-inline-end: var(--space-md); bottom: var(--space-md); z-index: var(--z-toast); display: grid; gap: var(--space-xs); padding: var(--space-sm) var(--space-md); background: var(--color-card); box-shadow: var(--shadow-card); font-size: var(--text-xs); max-width: calc(100vw - 2 * var(--space-md)); }

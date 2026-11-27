@@ -1,16 +1,24 @@
-/* Demo: hero switcher and the photo-led tint. ?hero=mosaic|citrus|teal|sun&tint=wash|bloom|off */
+/* Demo: hero switcher and the photo-led tint. ?hero=mosaic|citrus|teal|sun&tint=auto|wash|bloom|off&bloom=1|2|3|4
+   auto = the bloom where a photo has open page beside it, the page wash where it has none (full bleed, phones). */
 (() => {
   const root = document.documentElement;
   const form = document.querySelector('[data-demo]');
   const q = new URLSearchParams(location.search);
   const state = { hero: q.get('hero') || 'mosaic', tint: q.get('tint') || 'wash' };
+  root.dataset.bloom = q.get('bloom') || '4';
 
   // Colours per key photo, from its sampled hue (h) and chroma (c).
   const hosts = [...document.querySelectorAll('[data-tint]')];
   hosts.forEach((el) => {
     const [h, c] = el.dataset.tint.split(' ').map(Number);
-    el.style.setProperty('--bloom', `oklch(80% ${Math.min(c * 1.1, 0.14).toFixed(3)} ${h} / 0.75)`);
-    el.style.setProperty('--bloom-2', `oklch(86% ${Math.min(c * 0.8, 0.11).toFixed(3)} ${(h + 16) % 360} / 0.6)`);
+    el.style.setProperty('--bh', h); el.style.setProperty('--bc', c);
+    // which side of the photo has open page (the text column): the travelling bloom heads that way
+    const side = () => {
+      const r = el.getBoundingClientRect();
+      el.style.setProperty('--side', r.left + r.width / 2 > innerWidth / 2 ? -1 : 1);
+      el.classList.toggle('is-open', r.width > 0 && r.width < innerWidth * 0.7); // room beside it for the bloom to travel into
+    };
+    side(); addEventListener('resize', () => { side(); paint(); });
     el.wash = `oklch(94.5% ${Math.min(0.010 + c * 0.05, 0.02).toFixed(3)} ${h})`;
   });
 
@@ -18,7 +26,8 @@
   const seen = new Map();
   const paint = () => {
     hosts.forEach((el) => el.classList.toggle('is-tinted', el === active));
-    if (state.tint === 'wash' && active) root.style.setProperty('--color-paper', active.wash);
+    const wash = state.tint === 'wash' || (state.tint === 'auto' && !active?.classList.contains('is-open'));
+    if (wash && active) root.style.setProperty('--color-paper', active.wash);
     else root.style.removeProperty('--color-paper');
   };
   // The key photo filling most of the middle band of the screen leads the colour.
@@ -32,6 +41,7 @@
 
   const apply = () => {
     document.querySelectorAll('[data-hero]').forEach((s) => { s.hidden = s.dataset.hero !== state.hero; });
+    dispatchEvent(new Event('resize'));
     root.dataset.tintMode = state.tint;
     paint();
     const u = new URL(location.href);
