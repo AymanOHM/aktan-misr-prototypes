@@ -1,3 +1,4 @@
+import { readFileSync } from 'node:fs';
 // Shared layout and helpers for the Aktan Misr static site.
 // Pages are plain functions returning { path, lang, title, description, body, ... }.
 // Run: node www/_src/build.mjs  (writes HTML into www/)
@@ -35,6 +36,17 @@ export function pic(page, name, alt, brief, { cls = 'ph', eager = false, pos = '
   page.photos.add(name);
   const sizes = cls.includes('bleed') ? '100vw' : '(min-width: 90rem) 660px, (min-width: 60rem) 45vw, 100vw';
   return `<div class="${cls}" data-slot="${esc(name)}" data-alt="${esc(brief)}"><img src="/img/${name}-1600.webp" srcset="/img/${name}-800.webp 800w, /img/${name}-1600.webp 1600w" sizes="${sizes}" width="${p.w}" height="${p.h}" alt="${esc(alt)}"${eager ? ' fetchpriority="high"' : ' loading="lazy" decoding="async"'}${pos ? ` style="object-position:${pos}"` : ''}></div>`;
+}
+
+// The mill's own photographs (old sehely.com shoot), sized by the photo script into /img/s/.
+// colors.json holds each photo's size, the widths made and its sampled hue and chroma for the photo-led tint.
+const COLORS = JSON.parse(readFileSync(new URL('../img/s/colors.json', import.meta.url)));
+export function real(name, alt, { cls = 'ph', eager = false, pos = '', sizes = '(min-width: 90rem) 660px, (min-width: 60rem) 45vw, 100vw', tint = false } = {}) {
+  const c = COLORS[name];
+  if (!c) throw new Error('unknown photo ' + name);
+  const set = (ext) => c.widths.map((w, i) => `/img/s/${name}-${i ? 1600 : 800}.${ext} ${w}w`).join(', ');
+  const tintAttr = tint ? ` data-tint="${typeof tint === 'object' ? `${tint.hue} ${tint.chroma}` : `${c.hue} ${c.chroma}`}"` : '';
+  return `<div class="${cls}" data-photo="${esc(name)}"${tintAttr}><picture><source type="image/avif" srcset="${set('avif')}" sizes="${sizes}"><img src="/img/s/${name}-1600.webp" srcset="${set('webp')}" sizes="${sizes}" width="${c.w}" height="${c.h}" alt="${esc(alt)}"${eager ? ' fetchpriority="high"' : ' loading="lazy" decoding="async"'}${pos ? ` style="object-position:${pos}"` : ''}></picture></div>`;
 }
 
 export const fill = (t) => `<span class="fill">${esc(t)}</span>`;
@@ -140,7 +152,7 @@ ${hreflang}
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 ${fonts}
 ${page.preload ? `<link rel="preload" as="image" type="image/webp" imagesrcset="/img/${page.preload}-800.webp 800w, /img/${page.preload}-1600.webp 1600w" imagesizes="(min-width: 90rem) 660px, (min-width: 60rem) 45vw, 100vw">\n` : ''}<link rel="stylesheet" href="/assets/styles.css">
-<link rel="stylesheet" href="/assets/phone.css">
+<link rel="stylesheet" href="/assets/phone.css">${(page.css || []).map((h) => `\n<link rel="stylesheet" href="${h}">`).join('')}
 <script>document.documentElement.classList.add('js');</script>
 ${ld}
 </head>
@@ -150,7 +162,7 @@ ${header(page)}
 ${body}
 </main>
 ${footer(page)}
-<script src="/assets/site.js" defer></script>
+<script src="/assets/site.js" defer></script>${(page.scripts || []).map((h) => `\n<script src="${h}" defer></script>`).join('')}
 </body>
 </html>
 `;

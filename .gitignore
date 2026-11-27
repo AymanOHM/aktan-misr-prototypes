@@ -2,3 +2,6 @@
 prototypes/*/.hallmark/shots/
 /.hallmark/
 www/.hallmark/
+
+# Source photographs from the old sehely.com (150 MB, camera originals). Web sizes live in www/img/.
+photos-src/

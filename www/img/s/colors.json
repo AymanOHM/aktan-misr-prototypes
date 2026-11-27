@@ -1,0 +1,706 @@
+{
+ "robe-man-fireplace": {
+  "w": 849,
+  "h": 1200,
+  "widths": [
+   800,
+   849
+  ],
+  "hue": 62,
+  "chroma": 0.058,
+  "light": 0.51
+ },
+ "robe-man-doorway": {
+  "w": 848,
+  "h": 1200,
+  "widths": [
+   800,
+   848
+  ],
+  "hue": 47,
+  "chroma": 0.017,
+  "light": 0.705
+ },
+ "robe-man-balcony": {
+  "w": 800,
+  "h": 1200,
+  "widths": [
+   800,
+   800
+  ],
+  "hue": 132,
+  "chroma": 0.052,
+  "light": 0.389
+ },
+ "robe-man-reading": {
+  "w": 848,
+  "h": 1200,
+  "widths": [
+   800,
+   848
+  ],
+  "hue": 174,
+  "chroma": 0.03,
+  "light": 0.685
+ },
+ "robe-woman-lounge": {
+  "w": 849,
+  "h": 1200,
+  "widths": [
+   800,
+   849
+  ],
+  "hue": 115,
+  "chroma": 0.095,
+  "light": 0.619
+ },
+ "robe-couple-pool": {
+  "w": 849,
+  "h": 1200,
+  "widths": [
+   800,
+   849
+  ],
+  "hue": 187,
+  "chroma": 0.054,
+  "light": 0.675
+ },
+ "robe-couple-sofa": {
+  "w": 849,
+  "h": 1200,
+  "widths": [
+   800,
+   849
+  ],
+  "hue": 195,
+  "chroma": 0.061,
+  "light": 0.648
+ },
+ "robe-woman-books": {
+  "w": 849,
+  "h": 1200,
+  "widths": [
+   800,
+   849
+  ],
+  "hue": 54,
+  "chroma": 0.054,
+  "light": 0.617
+ },
+ "robe-woman-bed": {
+  "w": 849,
+  "h": 1200,
+  "widths": [
+   800,
+   849
+  ],
+  "hue": 35,
+  "chroma": 0.064,
+  "light": 0.672
+ },
+ "robe-woman-armchair": {
+  "w": 849,
+  "h": 1200,
+  "widths": [
+   800,
+   849
+  ],
+  "hue": 31,
+  "chroma": 0.083,
+  "light": 0.599
+ },
+ "bath-rolled-blush": {
+  "w": 1600,
+  "h": 846,
+  "widths": [
+   800,
+   1600
+  ],
+  "hue": 21,
+  "chroma": 0.086,
+  "light": 0.532
+ },
+ "bath-orange-squares": {
+  "w": 1600,
+  "h": 1054,
+  "widths": [
+   800,
+   1600
+  ],
+  "hue": 42,
+  "chroma": 0.124,
+  "light": 0.708
+ },
+ "bath-blue-jacquard": {
+  "w": 1117,
+  "h": 1200,
+  "widths": [
+   800,
+   1117
+  ],
+  "hue": 264,
+  "chroma": 0.115,
+  "light": 0.676
+ },
+ "bath-navy-rust-rail": {
+  "w": 888,
+  "h": 1200,
+  "widths": [
+   800,
+   888
+  ],
+  "hue": 9,
+  "chroma": 0.107,
+  "light": 0.54
+ },
+ "bath-teal-dots": {
+  "w": 1600,
+  "h": 1067,
+  "widths": [
+   800,
+   1600
+  ],
+  "hue": 205,
+  "chroma": 0.065,
+  "light": 0.529
+ },
+ "bath-check-sink": {
+  "w": 838,
+  "h": 1200,
+  "widths": [
+   800,
+   838
+  ],
+  "hue": 45,
+  "chroma": 0.088,
+  "light": 0.585
+ },
+ "bath-chevron-sink": {
+  "w": 857,
+  "h": 1200,
+  "widths": [
+   800,
+   857
+  ],
+  "hue": 271,
+  "chroma": 0.061,
+  "light": 0.518
+ },
+ "bath-pink-jacquard": {
+  "w": 800,
+  "h": 1200,
+  "widths": [
+   800,
+   800
+  ],
+  "hue": 13,
+  "chroma": 0.068,
+  "light": 0.618
+ },
+ "bath-flora-stack": {
+  "w": 781,
+  "h": 1200,
+  "widths": [
+   781,
+   781
+  ],
+  "hue": 40,
+  "chroma": 0.106,
+  "light": 0.64
+ },
+ "kitchen-orange-citrus": {
+  "w": 3943,
+  "h": 5915,
+  "widths": [
+   800,
+   1600
+  ],
+  "hue": 37,
+  "chroma": 0.202,
+  "light": 0.507
+ },
+ "kitchen-hanging-trio": {
+  "w": 2349,
+  "h": 3355,
+  "widths": [
+   800,
+   1600
+  ],
+  "hue": 42,
+  "chroma": 0.075,
+  "light": 0.59
+ },
+ "kitchen-aloe-set": {
+  "w": 5384,
+  "h": 3846,
+  "widths": [
+   800,
+   1600
+  ],
+  "hue": 49,
+  "chroma": 0.045,
+  "light": 0.596
+ },
+ "kitchen-green-check": {
+  "w": 3909,
+  "h": 5473,
+  "widths": [
+   800,
+   1600
+  ],
+  "hue": 65,
+  "chroma": 0.093,
+  "light": 0.55
+ },
+ "kitchen-teacup-waffle": {
+  "w": 4000,
+  "h": 6000,
+  "widths": [
+   800,
+   1600
+  ],
+  "hue": 11,
+  "chroma": 0.101,
+  "light": 0.623
+ },
+ "kitchen-tomato": {
+  "w": 4000,
+  "h": 5008,
+  "widths": [
+   800,
+   1600
+  ],
+  "hue": 38,
+  "chroma": 0.164,
+  "light": 0.561
+ },
+ "kitchen-orange-chef": {
+  "w": 2205,
+  "h": 3126,
+  "widths": [
+   800,
+   1600
+  ],
+  "hue": 38,
+  "chroma": 0.163,
+  "light": 0.655
+ },
+ "kitchen-christmas": {
+  "w": 1365,
+  "h": 2048,
+  "widths": [
+   800,
+   1365
+  ],
+  "hue": 21,
+  "chroma": 0.17,
+  "light": 0.638
+ },
+ "kitchen-pink-hearts": {
+  "w": 2048,
+  "h": 1365,
+  "widths": [
+   800,
+   1600
+  ],
+  "hue": 6,
+  "chroma": 0.16,
+  "light": 0.708
+ },
+ "kitchen-yellow-limone": {
+  "w": 1365,
+  "h": 2048,
+  "widths": [
+   800,
+   1365
+  ],
+  "hue": 58,
+  "chroma": 0.092,
+  "light": 0.699
+ },
+ "kitchen-check-trio": {
+  "w": 2048,
+  "h": 1365,
+  "widths": [
+   800,
+   1600
+  ],
+  "hue": 33,
+  "chroma": 0.083,
+  "light": 0.653
+ },
+ "kitchen-green-pair": {
+  "w": 1365,
+  "h": 2048,
+  "widths": [
+   800,
+   1365
+  ],
+  "hue": 60,
+  "chroma": 0.091,
+  "light": 0.667
+ },
+ "kitchen-brown-olive": {
+  "w": 1536,
+  "h": 2048,
+  "widths": [
+   800,
+   1536
+  ],
+  "hue": 43,
+  "chroma": 0.081,
+  "light": 0.626
+ },
+ "kitchen-lilac-cloth": {
+  "w": 1365,
+  "h": 2048,
+  "widths": [
+   800,
+   1365
+  ],
+  "hue": 358,
+  "chroma": 0.108,
+  "light": 0.683
+ },
+ "beach-green-chair": {
+  "w": 3151,
+  "h": 4444,
+  "widths": [
+   800,
+   1600
+  ],
+  "hue": 162,
+  "chroma": 0.121,
+  "light": 0.652
+ },
+ "beach-lime-ship": {
+  "w": 3240,
+  "h": 4860,
+  "widths": [
+   800,
+   1600
+  ],
+  "hue": 147,
+  "chroma": 0.102,
+  "light": 0.617
+ },
+ "beach-lounger-flame": {
+  "w": 4740,
+  "h": 2715,
+  "widths": [
+   800,
+   1600
+  ],
+  "hue": 44,
+  "chroma": 0.15,
+  "light": 0.601
+ },
+ "beach-sun-closeup": {
+  "w": 3240,
+  "h": 4860,
+  "widths": [
+   800,
+   1600
+  ],
+  "hue": 31,
+  "chroma": 0.188,
+  "light": 0.601
+ },
+ "beach-pink-poolside": {
+  "w": 4860,
+  "h": 3240,
+  "widths": [
+   800,
+   1600
+  ],
+  "hue": 7,
+  "chroma": 0.113,
+  "light": 0.737
+ },
+ "beach-surfer-cabin": {
+  "w": 738,
+  "h": 785,
+  "widths": [
+   738,
+   738
+  ],
+  "hue": 247,
+  "chroma": 0.075,
+  "light": 0.599
+ },
+ "beach-sunlight-cabin": {
+  "w": 768,
+  "h": 976,
+  "widths": [
+   768,
+   768
+  ],
+  "hue": 13,
+  "chroma": 0.067,
+  "light": 0.622
+ },
+ "pareo-red-rail": {
+  "w": 2780,
+  "h": 4340,
+  "widths": [
+   800,
+   1600
+  ],
+  "hue": 218,
+  "chroma": 0.109,
+  "light": 0.607
+ },
+ "pareo-pink-garden": {
+  "w": 2870,
+  "h": 3901,
+  "widths": [
+   800,
+   1600
+  ],
+  "hue": 74,
+  "chroma": 0.051,
+  "light": 0.651
+ },
+ "pareo-aqua-chair": {
+  "w": 3240,
+  "h": 4418,
+  "widths": [
+   800,
+   1600
+  ],
+  "hue": 236,
+  "chroma": 0.091,
+  "light": 0.606
+ },
+ "pareo-blue-table": {
+  "w": 3240,
+  "h": 4800,
+  "widths": [
+   800,
+   1600
+  ],
+  "hue": 222,
+  "chroma": 0.118,
+  "light": 0.643
+ },
+ "pareo-lilac-poolside": {
+  "w": 4860,
+  "h": 3240,
+  "widths": [
+   800,
+   1600
+  ],
+  "hue": 211,
+  "chroma": 0.1,
+  "light": 0.672
+ },
+ "fair-stand-wide": {
+  "w": 1040,
+  "h": 780,
+  "widths": [
+   800,
+   1040
+  ],
+  "hue": 285,
+  "chroma": 0.047,
+  "light": 0.534
+ },
+ "fair-stand-wide-2": {
+  "w": 1040,
+  "h": 780,
+  "widths": [
+   800,
+   1040
+  ],
+  "hue": 292,
+  "chroma": 0.034,
+  "light": 0.666
+ },
+ "fair-stand-visitors": {
+  "w": 1040,
+  "h": 780,
+  "widths": [
+   800,
+   1040
+  ],
+  "hue": 304,
+  "chroma": 0.032,
+  "light": 0.71
+ },
+ "fair-stand-meeting": {
+  "w": 780,
+  "h": 1040,
+  "widths": [
+   780,
+   780
+  ],
+  "hue": 343,
+  "chroma": 0.031,
+  "light": 0.584
+ },
+ "fair-stand-shelves": {
+  "w": 1040,
+  "h": 780,
+  "widths": [
+   800,
+   1040
+  ],
+  "hue": 341,
+  "chroma": 0.026,
+  "light": 0.592
+ },
+ "fair-stand-robes": {
+  "w": 1040,
+  "h": 780,
+  "widths": [
+   800,
+   1040
+  ],
+  "hue": 350,
+  "chroma": 0.02,
+  "light": 0.637
+ },
+ "fair-stand-robes-2": {
+  "w": 1040,
+  "h": 780,
+  "widths": [
+   800,
+   1040
+  ],
+  "hue": 30,
+  "chroma": 0.035,
+  "light": 0.487
+ },
+ "fair-stand-pareo-wall": {
+  "w": 780,
+  "h": 1040,
+  "widths": [
+   780,
+   780
+  ],
+  "hue": 350,
+  "chroma": 0.028,
+  "light": 0.575
+ },
+ "stock-slider-lilies": {
+  "w": 1243,
+  "h": 1400,
+  "widths": [
+   800,
+   1243
+  ],
+  "hue": 72,
+  "chroma": 0.06,
+  "light": 0.912
+ },
+ "stock-slider-fouta": {
+  "w": 1243,
+  "h": 1400,
+  "widths": [
+   800,
+   1243
+  ],
+  "hue": 302,
+  "chroma": 0.062,
+  "light": 0.793
+ },
+ "stock-slider-robes-rail": {
+  "w": 1243,
+  "h": 1400,
+  "widths": [
+   800,
+   1243
+  ],
+  "hue": 56,
+  "chroma": 0.029,
+  "light": 0.523
+ },
+ "stock-slider-colour-stack": {
+  "w": 1243,
+  "h": 1400,
+  "widths": [
+   800,
+   1243
+  ],
+  "hue": 69,
+  "chroma": 0.011,
+  "light": 0.817
+ },
+ "stock-hotel-lilies": {
+  "w": 1500,
+  "h": 1500,
+  "widths": [
+   800,
+   1500
+  ],
+  "hue": 74,
+  "chroma": 0.112,
+  "light": 0.836
+ },
+ "stock-hotel-spa": {
+  "w": 2560,
+  "h": 1600,
+  "widths": [
+   800,
+   1600
+  ],
+  "hue": 205,
+  "chroma": 0.022,
+  "light": 0.87
+ },
+ "stock-hotel-mat": {
+  "w": 540,
+  "h": 725,
+  "widths": [
+   540,
+   540
+  ],
+  "hue": 99,
+  "chroma": 0.004,
+  "light": 0.808
+ },
+ "stock-hotel-bedside": {
+  "w": 1500,
+  "h": 2257,
+  "widths": [
+   800,
+   1500
+  ],
+  "hue": 78,
+  "chroma": 0.06,
+  "light": 0.656
+ },
+ "stock-hotel-jacquard": {
+  "w": 1500,
+  "h": 1125,
+  "widths": [
+   800,
+   1500
+  ],
+  "hue": 120,
+  "chroma": 0.005,
+  "light": 0.901
+ },
+ "stock-mission": {
+  "w": 558,
+  "h": 336,
+  "widths": [
+   558,
+   558
+  ],
+  "hue": 70,
+  "chroma": 0.056,
+  "light": 0.662
+ },
+ "stock-vision": {
+  "w": 558,
+  "h": 336,
+  "widths": [
+   558,
+   558
+  ],
+  "hue": 30,
+  "chroma": 0.056,
+  "light": 0.792
+ }
+}

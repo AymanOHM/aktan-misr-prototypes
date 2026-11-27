@@ -20,7 +20,7 @@ export const FAMILIES = [
     lead: 'Dobby and jacquard pareo with fringed ends.',
     spec: [['Sizes', fill('size list')], ['Weaves', 'Dobby, jacquard'], ['Finish', fill('fringe and hem options')], ['Minimum order', fill('MOQ per design')]] },
 ];
-const famHref = (f) => f.href || `/products/${f.slug}/`;
+export const famHref = (f) => f.href || `/products/${f.slug}/`;
 
 const ORG = {
   '@context': 'https://schema.org', '@type': 'Organization', name: 'Aktan Misr Textile & Dyeing S.A.E.', alternateName: ['Sehely Textile & Dyeing', 'Sehely Textile'],
@@ -29,9 +29,9 @@ const ORG = {
   sameAs: ['https://www.linkedin.com/company/aktan-misr-textile-dyeing-s-a-e-sehely-textile-dyeing/', 'https://www.facebook.com/sehely'],
 };
 
-const quoteCta = (q, label = 'Request a quote') => `<a class="btn btn--solid" href="/quote/${q ? '?' + q : ''}">${label}</a>`;
+export const quoteCta = (q, label = 'Request a quote') => `<a class="btn btn--solid" href="/quote/${q ? '?' + q : ''}">${label}</a>`;
 
-function evidenceRows(full) {
+export function evidenceRows(full) {
   const rows = [
     ['Fibre', '100% Egyptian cotton, all products', 'ok', 'Confirmed by the mill'],
     ['Egyptian cotton licence', fill('licence document'), 'todo', 'To publish'],
