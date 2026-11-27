@@ -1,30 +1,27 @@
 // Arabic pages for Gulf / MENA / Morocco buyers. Draft translation: to be reviewed by a native trade writer.
 // Trade terms chosen for search: فوط / بشاكير (towels), برانس (bathrobes).
-import { pic, fill, pageHead, newPage } from './lib.mjs';
-import { quoteForm } from './pages-en.mjs';
+import { real, fill, pageHead, newPage } from './lib.mjs';
+import { quoteForm, heroMosaic, M1_SIZES } from './pages-en.mjs';
 
 export function pages() {
   const out = [];
   {
     const p = newPage({ path: '/ar/', lang: 'ar', nav: '/ar/', title: 'مصنع فوط قطن مصري للعلامات الخاصة | أكتان مصر',
       description: 'مصنع فوط وبرانس من القطن المصري 100% في المحلة الكبرى منذ 1956. ننسج ونصبغ ونجهّز بعلامتك التجارية الخاصة للتصدير.',
-      alternates: { en: '/' }, preload: 'monogram' });
+      alternates: { en: '/' }, preload: ['robe-couple-sofa', M1_SIZES] });
     p.body = `
-<section class="hero" aria-labelledby="hero-h" style="padding-top: var(--space-2xl)">
+<section class="hero hero--mosaic" aria-labelledby="hero-h">
   <div class="container grid">
     <div class="hero__text">
       <h1 id="hero-h">مصنع فوط قطن مصري لعلامتك</h1>
       <p class="lead">فوط وبرانس تُنسج وتُصبغ وتُجهّز باسم علامتك منذ 1956.</p>
       <div class="hero__actions"><a class="btn btn--solid" href="/ar/quote/?buyer=private-label">اطلب عرض سعر</a><a class="link" href="/ar/private-label/">كيف تعمل العلامة الخاصة</a></div>
     </div>
-    <div class="hero__pic">
-      ${pic(p, 'monogram', 'فوط رمادية مطوية عليها حروف مطرزة وملصق مخيط', 'صورتكم: طقم فوط بعلامة عميل منسوجة وشعار جاكار', { eager: true })}
-      <p class="caption"><span>تصميمك ولونك وعلامتك</span><span>قطن مصري 100%</span></p>
-    </div>
+    ${heroMosaic(['زوجان يرتديان برنسين مخططين بلون تركوازي على أريكة بيضاء', 'فوطة حمام تركوازية مطوية بشريط منقط منسوج', 'فوط فندقية بيضاء مطوية في كومة، عن قرب'])}
   </div>
 </section>
 
-<section id="mill" aria-labelledby="mill-h">
+<section id="mill" class="band" aria-labelledby="mill-h">
   <div class="container">
     <div class="head head--split"><h2 id="mill-h">مصنع واحد يتحكم في كل المراحل</h2><p class="lead">النسيج والصباغة والتجهيز والتغليف تحت سقف واحد في المحلة الكبرى.</p></div>
     <ol class="steps" style="--n: 4">
@@ -40,9 +37,9 @@ export function pages() {
   <div class="container">
     <div class="head head--split"><h2 id="range-h">ست عائلات منتجات</h2><p class="lead">كل منها بتصميمك ولونك وعلامتك.</p></div>
     <div class="families">
-      <div>${pic(p, 'colours', 'رفوف فوط مطوية بألوان متعددة', 'صورتكم: فوط حمام بثلاثة ألوان')}<h3>فوط حمام ووجه</h3><p>تيري، قطيفة، حواف جاكار</p></div>
-      <div>${pic(p, 'bathrobes', 'برنسان أبيضان معلقان في حمام', 'صورتكم: برانس بياقة شال')}<h3>برانس</h3><p>تيري، قطيفة، تيري جاكار</p></div>
-      <div>${pic(p, 'white-stack', 'كومة فوط بيضاء', 'صورتكم: فوط فنادق بيضاء')}<h3>فوط فنادق</h3><p>تيري بخياطة مزدوجة</p></div>
+      <div>${real('bath-blue-jacquard', 'فوط حمام جاكار زرقاء معلقة على حامل ومطوية في كومة', { pos: '50% 60%' })}<h3>فوط حمام ووجه</h3><p>تيري، قطيفة، حواف جاكار</p></div>
+      <div>${real('robe-woman-bed', 'امرأة ترتدي برنساً مربعات برتقالياً بقلنسوة جالسة على سرير', { pos: '50% 35%' })}<h3>برانس</h3><p>تيري، قطيفة، تيري جاكار</p></div>
+      <div>${real('stock-hotel-jacquard', 'فوط فندقية بيضاء بحافة منسوجة مطوية في كومة', { pos: '50% 50%' })}<h3>فوط فنادق</h3><p>تيري بخياطة مزدوجة</p></div>
     </div>
     <p style="margin-top: var(--space-xl)">ومنها أيضاً فوط المطبخ وفوط الشاطئ والباريو. <a class="link" href="/products/" lang="en" hreflang="en">Products (English)</a></p>
   </div>
@@ -79,7 +76,7 @@ export function pages() {
       </dl>
       <div class="actions"><a class="btn btn--solid" href="/ar/quote/?buyer=private-label">اطلب عرض سعر</a></div>
     </div>
-    ${pic(p, 'towels-shelf', 'فوط مطوية على رف خشبي', 'صورتكم: طلبية علامة خاصة جاهزة للتعبئة')}
+    ${real('kitchen-orange-chef', 'فوطتا مطبخ جاكار برتقاليتان بزخرفة طاهٍ منسوجة معلقتان على مشابك', { pos: '50% 40%', tint: true })}
   </div>
 </section>`;
     out.push(p);

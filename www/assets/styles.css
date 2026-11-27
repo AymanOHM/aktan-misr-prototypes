@@ -1,9 +1,11 @@
 /* Hallmark · shape: Photographic (from prototype B) · genre: editorial · theme: Atelier (by request: prototype B chosen as visual base) · job: hire (request a quote) · redesign: full (B system + C structure + A proof)
- * hero: Stage · nav: edge-aligned · footer: statement · imagery: stand-in photographs (Unsplash, self-hosted, credited) in slots the mill's own shoot replaces · signature: the towel with a monogram, "your label" made literal, beside the private-label promise
- * axes: light/roman-serif/cool · posture: restrained · brand: Aktan Misr (spec 2026-11-26) · v2.0.0 */
-/* Hallmark · pre-emit critique: P4 H4 E4 S4 R4 V4 · weakest: S, stand-in photographs are not this mill; every slot names the shot to take and the copy carries only facts from the brief */
+ * hero: range mosaic (three of the mill's photos, the tall robe spanning two rows) · nav: edge-aligned, fixed paper · footer: statement on a terracotta field · imagery: the mill's own photographs (old sehely.com shoot, AVIF/WebP), Unsplash stand-ins only on Manufacturing (no factory shoot yet) · colour: terracotta thread and buttons, one deep-teal band, terracotta footer · signature: the photo-led tint, a halo of each key photo's own colour (sideways beside open page, a vertical splash on full-width photos)
+ * axes: light/roman-serif/warm · posture: restrained · brand: Aktan Misr (spec 2026-11-26) · v2.0.0 */
+/* Hallmark · pre-emit critique: P4 H4 E4 S4 R4 V4 · weakest: E, the evidence rows are still mostly placeholders the company must fill; the photographs are now the mill's own */
+/* Hallmark · dismissed 29 · the blurred bloom is the approved photo-led tint (bloom v3), faint, behind key photos only, never a free-floating wash */
+/* Hallmark · dismissed F20 · the hero mosaic is 1 tall + 2 stacked: the first photo spans both rows, so there is no orphan */
 /* Hallmark · waive 37 · Noto Naskh Arabic and IBM Plex Sans Arabic load only on the Arabic pages · an Arabic reader sees two families and an English reader sees Sentient and Hanken Grotesk, never four */
-/* Hallmark · dismissed 23 · accent moved to indigo slate (hue 266) to match the agreed indigo brief, under the theme's chroma ceiling */
+/* Hallmark · dismissed 23 · accent is terracotta (hue 38), sampled from the mill's orange robes and kitchen towels, chosen 2026-11-27 for contrast with the teal photos; deep teal for the one band */
 /* Hallmark · waive 44c · inner pages open on a page-head banner, not a hero · the product, quote and evidence pages lead with their table or form at once */
 /* Hallmark · waive 78 · the quote form's group heads What you need and Your details · they label form groups inside one page, set at item size, not section heads */
 /* Hallmark · waive 77 · the privacy page is a draft notice in prose · its text is legal copy the company writes, so it stays one column */
@@ -298,3 +300,97 @@ fieldset[aria-invalid="true"] .chips label { border-color: var(--color-error); }
 /* staging note */
 .stage-note { background: var(--color-ink); color: var(--color-paper); font-size: var(--text-sm); }
 .stage-note .container { min-height: 36px; display: flex; align-items: center; }
+
+/* ---------- the mill's own photographs ----------
+   Real photographs carry their own colour: no grade (the sepia unifier stays on the Unsplash stand-ins only). */
+[data-photo] { position: relative; background: var(--color-paper-2); }
+[data-photo] > picture { position: absolute; inset: 0; overflow: hidden; z-index: 1; }
+[data-photo] img { width: 100%; height: 100%; object-fit: cover; }
+.bleed > [data-photo] { position: absolute; inset: 0; }
+
+/* hero: the range in three photographs */
+.hero--mosaic .hero__text { grid-column: 1 / span 5; }
+.hero--mosaic h1 { font-size: clamp(2.5rem, 3.4vw + 1rem, 4.5rem); hyphens: manual; }
+.hero__mosaic { grid-column: 6 / -1; display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); grid-template-rows: minmax(0, 1fr) minmax(0, 1fr); gap: var(--space-sm); height: min(74svh, 700px); }
+.hero__mosaic .m1 { grid-row: 1 / 3; }
+@media (max-width: 60rem) {
+  .hero--mosaic .hero__text, .hero__mosaic { grid-column: 1 / -1; }
+  .hero__mosaic { height: auto; aspect-ratio: 1 / 1; gap: var(--space-xs); }
+}
+
+/* ---------- photo-led tint ----------
+   On a few key photos per page, a soft light halo of the photo's own colour. The page paper never changes
+   (the page wash was dropped 2026-11-27: on phones it recoloured the whole screen around the terracotta button).
+   Beside open page the halo spreads sideways; where the photo is full width (phones, the full-bleed band)
+   it splashes vertically, above and below the photo, into the gutters. */
+:root { --tint-dur: 1200ms; }
+/* no isolation: the halo (z-index -1) then sits behind all page text and controls, never over them */
+[data-tint] { position: relative; }
+[data-tint]::before {
+  content: ""; position: absolute; inset: -48% -38%; z-index: -1; pointer-events: none;
+  --b1: oklch(86% min(calc(var(--bc) * 1.1), 0.14) var(--bh) / 0.9);
+  --b2: oklch(92% min(calc(var(--bc) * 0.8), 0.11) calc(var(--bh) + 16) / 0.75);
+  background:
+    radial-gradient(46% 50% at 36% 40%, var(--b1) 0%, transparent 72%),
+    radial-gradient(40% 44% at 68% 64%, var(--b2) 0%, transparent 74%),
+    radial-gradient(30% 30% at 56% 22%, var(--b2) 0%, transparent 70%);
+  filter: blur(72px); opacity: 0; transform: scale(0.78);
+  transition: opacity 1600ms var(--ease-soft, ease), transform 1600ms var(--ease-soft, ease);
+}
+/* vertical splash: full-width photos have no room beside them, so the colour spills from their top and bottom edges.
+   Each glow is an ellipse centred ON the edge: strongest and widest where it leaves the photo (wider than the photo),
+   narrowing and fading as it travels away (--sr). It grows sideways from the source as it fades in. */
+[data-tint]:not(.is-open)::before {
+  --sr: clamp(96px, 24vw, 170px);
+  inset: calc(-1 * var(--sr)) -8%;
+  --b1: oklch(86% min(calc(var(--bc) * 1.15), 0.13) var(--bh) / 0.95);
+  --b2: oklch(90% min(calc(var(--bc) * 0.9), 0.10) calc(var(--bh) + 12) / 0.85);
+  background:
+    radial-gradient(ellipse 64% var(--sr) at 50% var(--sr), var(--b1) 0%, color-mix(in oklab, var(--b1) 55%, transparent) 45%, transparent 100%),
+    radial-gradient(ellipse 64% var(--sr) at 50% calc(100% - var(--sr)), var(--b2) 0%, color-mix(in oklab, var(--b2) 55%, transparent) 45%, transparent 100%);
+  filter: blur(14px); transform: scaleX(0.7);
+}
+.bleed > [data-tint]::before { --sr: clamp(110px, 16vw, 220px); inset: calc(-1 * var(--sr)) 0; }
+[data-tint].is-tinted::before { opacity: 1; transform: none; }
+/* the bloom never paints over the staging note */
+.stage-note { position: relative; z-index: var(--z-raised); }
+@media (prefers-reduced-motion: reduce) { [data-tint]::before { transition: none; transform: none; } }
+.ph--wide { aspect-ratio: 16 / 9; }
+@media (max-width: 40rem) { .ph--wide { aspect-ratio: 4 / 3; } }
+
+/* ---------- colour (2026-11-27: "the site is a little bland") ----------
+   Terracotta, the complement of the teal photos, is the steady thread: link underlines, step numbers, the footer.
+   The solid buttons are terracotta too, fixed (a live per-photo button colour was tried and dropped 2026-11-27:
+   distracting, unreadable as a rule). Deep teal for the one band in the scroll. */
+:root {
+  --color-thread: oklch(54% 0.155 38); --color-act: var(--color-thread); --color-act-on: var(--color-on-colour); --color-bar: oklch(94.5% 0.010 76 / 0.95);
+  --color-band: oklch(36% 0.07 205); --color-on-colour: oklch(96% 0.008 76);
+  --color-accent: var(--color-thread); --color-focus: oklch(46% 0.14 38);
+}
+.btn--solid { background: var(--color-act); border-color: var(--color-act); color: var(--color-act-on); }
+.btn--solid:hover { background: color-mix(in oklab, var(--color-act) 84%, black); border-color: color-mix(in oklab, var(--color-act) 84%, black); }
+.link, .prose a, .foot__statement a { text-decoration-color: var(--color-thread); text-decoration-thickness: 2px; }
+.link:hover, .prose a:hover { color: var(--color-thread); }
+.steps li::before { color: var(--color-thread); }
+.bar nav a:not(.btn)[aria-current="page"], .bar nav a:not(.btn):hover { border-color: var(--color-thread); }
+/* the header keeps fixed paper while the page washes under it */
+.bar { background: var(--color-bar); }
+
+/* one colour band */
+.band { margin-top: var(--section-gap); padding-block: var(--space-3xl); background: var(--color-band); color: var(--color-on-colour); }
+.band h2, .band h3, .band p, .band .lead, .band .link, .band .steps li::before { color: var(--color-on-colour); }
+.band .head .lead { color: color-mix(in oklab, var(--color-on-colour) 82%, transparent); }
+.band .steps li { border-top-color: color-mix(in oklab, var(--color-on-colour) 55%, transparent); }
+.band .link { text-decoration-color: var(--color-on-colour); }
+.band .link:hover { color: var(--color-on-colour); text-decoration-thickness: 3px; }
+.band .link:focus-visible, .foot a:focus-visible { outline-color: var(--color-on-colour); }
+.band + section { padding-top: var(--section-gap-s); }
+
+/* coloured footer */
+.foot { background: var(--color-thread); color: var(--color-on-colour); border-top: 0; }
+.foot__statement, .foot h2, .foot li a, .foot address, .foot b, .credits, .foot p { color: var(--color-on-colour); }
+.foot h2, .credits { opacity: 1; }
+.foot__statement a { text-decoration-color: var(--color-on-colour); }
+.foot li a:hover { color: var(--color-on-colour); text-decoration: underline; text-underline-offset: 0.25em; }
+.foot .fill { color: var(--color-on-colour); border-color: color-mix(in oklab, var(--color-on-colour) 70%, transparent); }
+@media (prefers-reduced-motion: reduce) { :root { transition: none; } }

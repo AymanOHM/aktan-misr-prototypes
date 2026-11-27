@@ -46,7 +46,17 @@ export function real(name, alt, { cls = 'ph', eager = false, pos = '', sizes = '
   if (!c) throw new Error('unknown photo ' + name);
   const set = (ext) => c.widths.map((w, i) => `/img/s/${name}-${i ? 1600 : 800}.${ext} ${w}w`).join(', ');
   const tintAttr = tint ? ` data-tint="${typeof tint === 'object' ? `${tint.hue} ${tint.chroma}` : `${c.hue} ${c.chroma}`}"` : '';
-  return `<div class="${cls}" data-photo="${esc(name)}"${tintAttr}><picture><source type="image/avif" srcset="${set('avif')}" sizes="${sizes}"><img src="/img/s/${name}-1600.webp" srcset="${set('webp')}" sizes="${sizes}" width="${c.w}" height="${c.h}" alt="${esc(alt)}"${eager ? ' fetchpriority="high"' : ' loading="lazy" decoding="async"'}${pos ? ` style="object-position:${pos}"` : ''}></picture></div>`;
+  return `<div class="${cls}" data-photo="${esc(name)}"${tintAttr}><picture><source type="image/avif" srcset="${set('avif')}" sizes="${sizes}"><img src="/img/s/${name}-1600.webp" srcset="${set('webp')}" sizes="${sizes}" width="${c.w}" height="${c.h}" alt="${esc(alt)}"${eager ? (eager === 'lcp' ? ' fetchpriority="high"' : '') : ' loading="lazy" decoding="async"'}${pos ? ` style="object-position:${pos}"` : ''}></picture></div>`;
+}
+
+// Preload the LCP photo (a real photo: [name, sizes]; a stand-in: its name).
+function preloadTag(pre) {
+  if (Array.isArray(pre)) {
+    const [name, sizes] = pre; const c = COLORS[name];
+    const set = c.widths.map((w, i) => `/img/s/${name}-${i ? 1600 : 800}.avif ${w}w`).join(', ');
+    return `<link rel="preload" as="image" type="image/avif" imagesrcset="${set}" imagesizes="${sizes}" fetchpriority="high">\n`;
+  }
+  return `<link rel="preload" as="image" type="image/webp" imagesrcset="/img/${pre}-800.webp 800w, /img/${pre}-1600.webp 1600w" imagesizes="(min-width: 90rem) 660px, (min-width: 60rem) 45vw, 100vw">\n`;
 }
 
 export const fill = (t) => `<span class="fill">${esc(t)}</span>`;
@@ -63,11 +73,11 @@ const NAV = {
 
 const T = {
   en: { skip: 'Skip to content', menu: 'Menu', quote: 'Request a quote', home: 'Aktan Misr Textile and Dyeing, home', sub: 'Textile &amp; Dyeing, previously Sehely',
-    stage: 'Staging build with stand-in photographs and marked placeholders. Not the live site.',
+    stage: 'Staging build with marked placeholders. Not the live site.',
     statement: 'Write to export sales about <a href="/quote/">your next order</a>.',
     photos: 'Stand-in photographs', photoNote: 'to be replaced by photographs of the mill', unsplash: 'on Unsplash' },
   ar: { skip: 'انتقل إلى المحتوى', menu: 'القائمة', quote: 'اطلب عرض سعر', home: 'أكتان مصر للنسيج والصباغة، الصفحة الرئيسية', sub: 'للنسيج والصباغة ش.م.م | سهيلي للنسيج سابقاً',
-    stage: 'نسخة تجريبية بصور مؤقتة ونصوص ناقصة محددة. ليست الموقع الفعلي. الترجمة مسودة تحتاج مراجعة.',
+    stage: 'نسخة تجريبية بنصوص ناقصة محددة. ليست الموقع الفعلي. الترجمة مسودة تحتاج مراجعة.',
     statement: 'راسل قسم التصدير بشأن <a href="/ar/quote/">طلبيتك القادمة</a>.',
     photos: 'صور مؤقتة', photoNote: 'تُستبدل بصور المصنع', unsplash: 'على Unsplash' },
 };
@@ -82,7 +92,7 @@ function header(page) {
   const homeHref = page.lang === 'ar' ? '/ar/' : '/';
   const quoteHref = page.lang === 'ar' ? '/ar/quote/' : '/quote/';
   return `<a class="skip" href="#main">${t.skip}</a>
-${STAGING ? `<div class="stage-note" role="note"><div class="container"><span>${t.stage}</span></div></div>` : ''}
+${STAGING ? `<aside class="stage-note" aria-label="${page.lang === 'ar' ? 'تنبيه' : 'Staging notice'}"><div class="container"><span>${t.stage}</span></div></aside>` : ''}
 <header class="bar">
   <div class="container">
     <a class="wordmark" href="${homeHref}" aria-label="${t.home}">
@@ -130,7 +140,7 @@ function renderRaw(page) {
     ? [`<link rel="alternate" hreflang="${page.lang}" href="${url}">`, ...Object.entries(alt).map(([l, p]) => `<link rel="alternate" hreflang="${l}" href="${SITE + p}">`), `<link rel="alternate" hreflang="x-default" href="${SITE + (page.lang === 'en' ? page.path : alt.en)}">`].join('\n')
     : '';
   const fonts = page.lang === 'ar'
-    ? '<link href="https://fonts.googleapis.com/css2?family=Noto+Naskh+Arabic:wght@400&family=IBM+Plex+Sans+Arabic:wght@400&display=swap" rel="stylesheet">'
+    ? '<link href="https://fonts.googleapis.com/css2?family=Noto+Naskh+Arabic:wght@400&family=IBM+Plex+Sans+Arabic:wght@400&display=optional" rel="stylesheet">'
     : '<link href="https://api.fontshare.com/v2/css?f[]=sentient@300,400&display=swap" rel="stylesheet">\n<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400&display=swap" rel="stylesheet">';
   const crumbsLd = page.crumbs ? { '@context': 'https://schema.org', '@type': 'BreadcrumbList', itemListElement: page.crumbs.map(([name, path], i) => ({ '@type': 'ListItem', position: i + 1, name, item: SITE + path })) } : null;
   const ld = [page.ld, crumbsLd].filter(Boolean).map((o) => `<script type="application/ld+json">${JSON.stringify(o)}</script>`).join('\n');
@@ -148,10 +158,15 @@ ${hreflang}
 <meta property="og:description" content="${esc(page.description)}">
 <meta property="og:type" content="website">
 <meta property="og:url" content="${url}">
+<meta property="og:image" content="${SITE}/img/og-aktan-misr.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="${page.lang === 'ar' ? 'فوط مطبخ جاكار ووافل بنقشة الصبار' : 'Aloe-print jacquard and waffle kitchen towels from the Aktan Misr mill'}">
+<meta name="twitter:card" content="summary_large_image">
 <link rel="icon" href="/assets/mark.png">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 ${fonts}
-${page.preload ? `<link rel="preload" as="image" type="image/webp" imagesrcset="/img/${page.preload}-800.webp 800w, /img/${page.preload}-1600.webp 1600w" imagesizes="(min-width: 90rem) 660px, (min-width: 60rem) 45vw, 100vw">\n` : ''}<link rel="stylesheet" href="/assets/styles.css">
+${page.preload ? preloadTag(page.preload) : ''}<link rel="stylesheet" href="/assets/styles.css">
 <link rel="stylesheet" href="/assets/phone.css">${(page.css || []).map((h) => `\n<link rel="stylesheet" href="${h}">`).join('')}
 <script>document.documentElement.classList.add('js');</script>
 ${ld}

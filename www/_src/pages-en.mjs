@@ -1,25 +1,39 @@
-import { pic, fill, pageHead, newPage, SITE, esc } from './lib.mjs';
+import { pic, real, fill, pageHead, newPage, SITE, esc } from './lib.mjs';
 
 // Product families: facts from sehely.com and the Heimtextil listings; unknowns are fills.
 export const FAMILIES = [
-  { slug: 'bath-towels', name: 'Bath and face towels', weaves: 'Terry, velour, dobby and jacquard borders', for: 'Retail brands, hotels', photo: 'colours', alt: 'Stacks of folded towels in red, pink, cream and brown on shelves', brief: 'Your own: bath towels in three colourways, folded, plain backdrop',
+  { slug: 'bath-towels', name: 'Bath and face towels', weaves: 'Terry, velour, dobby and jacquard borders', for: 'Retail brands, hotels', card: ['bath-blue-jacquard', 'Royal blue jacquard bath towels hanging on a rail and folded in a stack', '50% 60%'], page: ['bath-orange-squares', 'Orange and peach bath towels with a woven square border, folded', '85% 50%'], photo: 'colours', alt: 'Stacks of folded towels in red, pink, cream and brown on shelves', brief: 'Your own: bath towels in three colourways, folded, plain backdrop',
     lead: 'Face and bath towels in 100% Egyptian cotton, yarn- or piece-dyed, with your border or logo.',
     spec: [['Sizes', fill('size list')], ['Weight', fill('g/m² range')], ['Weaves', 'Terry, velour, dobby, jacquard border'], ['Dyeing', 'Yarn-dyed or piece-dyed, in our own dye house'], ['Minimum order', fill('MOQ per design and colour')]] },
-  { slug: 'bathrobes', name: 'Bathrobes', weaves: 'Terry, velour, jacquard terry', for: 'Retail brands, hotels, spas', photo: 'bathrobes', alt: 'Two white terry bathrobes hanging on hooks in a bathroom', brief: 'Your own: shawl-collar and kimono robes on a plain wall',
+  { slug: 'bathrobes', name: 'Bathrobes', weaves: 'Terry, velour, jacquard terry', for: 'Retail brands, hotels, spas', card: ['robe-woman-bed', 'A woman in an orange check hooded bathrobe sitting on a bed', '50% 35%'], page: ['robe-man-reading', 'A man in a teal patterned bathrobe reading by a window', '50% 30%'], photo: 'bathrobes', alt: 'Two white terry bathrobes hanging on hooks in a bathroom', brief: 'Your own: shawl-collar and kimono robes on a plain wall',
     lead: 'Bathrobes in terry, velour or jacquard terry, made to your design and label.',
     spec: [['Styles', fill('styles offered')], ['Sizes', fill('size run')], ['Weight', fill('g/m² range')], ['Weaves', 'Terry, velour, jacquard terry'], ['Minimum order', fill('MOQ per style and colour')]] },
-  { slug: 'hotel-towels', name: 'Hotel towels', weaves: 'Terry, double-stitched hems', for: 'Hotels, spas, distributors', photo: 'white-stack', alt: 'A stack of clean white towels', brief: 'Your own: white hotel towels with a dobby border, stacked',
+  { slug: 'hotel-towels', name: 'Hotel towels', weaves: 'Terry, double-stitched hems', for: 'Hotels, spas, distributors', card: ['stock-hotel-jacquard', 'White hotel towels with a woven border, folded in a stack', '50% 50%'], page: ['stock-hotel-bedside', 'White hotel towels with soap laid on a made bed', '50% 60%'], photo: 'white-stack', alt: 'A stack of clean white towels', brief: 'Your own: white hotel towels with a dobby border, stacked',
     href: '/hotels/' },
-  { slug: 'kitchen-towels', name: 'Kitchen towels', weaves: 'Waffle, terry and flat', for: 'Retail brands', photo: 'kitchen', alt: 'A blue and white striped cotton kitchen towel under a bowl of blueberries', brief: 'Your own: kitchen towel sets, banded, on a table',
+  { slug: 'kitchen-towels', name: 'Kitchen towels', weaves: 'Waffle, terry and flat', for: 'Retail brands', card: ['kitchen-green-check', 'Green check and jacquard kitchen towels on a wooden box', '50% 50%'], page: ['kitchen-orange-citrus', 'An orange terry kitchen towel with a woven band of citrus slices, beside a rolled red towel', '50% 70%'], photo: 'kitchen', alt: 'A blue and white striped cotton kitchen towel under a bowl of blueberries', brief: 'Your own: kitchen towel sets, banded, on a table',
     lead: 'Waffle, terry and flat-woven kitchen towels in your colours and design.',
     spec: [['Sizes', fill('size list')], ['Weaves', 'Waffle, terry, flat'], ['Packing', fill('sets and bands')], ['Minimum order', fill('MOQ per design')]] },
-  { slug: 'beach-towels', name: 'Beach towels', weaves: fill('weaves to confirm'), for: 'Retail brands, resorts', photo: 'striped-stack', alt: 'Navy and white striped terry towels folded in a stack', brief: 'Your own: beach towels in summer colours, rolled',
+  { slug: 'beach-towels', name: 'Beach towels', weaves: fill('weaves to confirm'), for: 'Retail brands, resorts', card: ['beach-sun-closeup', 'Close-up of a velour beach towel printed with an orange sun and footprints on pink', '50% 40%'], page: ['beach-sunlight-cabin', 'A pink and red printed velour beach towel over a white deck chair in front of a beach hut', '50% 60%'], photo: 'striped-stack', alt: 'Navy and white striped terry towels folded in a stack', brief: 'Your own: beach towels in summer colours, rolled',
     lead: 'Thin, fast-drying Egyptian cotton terry in strong colours.',
     spec: [['Sizes', fill('size list')], ['Weight', fill('g/m² range')], ['Weaves', fill('weaves to confirm')], ['Minimum order', fill('MOQ per design')]] },
-  { slug: 'pareo', name: 'Pareo', weaves: 'Dobby and jacquard', for: 'Retail brands, resorts', photo: 'striped-sea', alt: 'A striped flat-woven cotton towel laid on rocks by the sea', brief: 'Your own: pareo with fringed ends, hung or folded',
+  { slug: 'pareo', name: 'Pareo', weaves: 'Dobby and jacquard', for: 'Retail brands, resorts', card: ['pareo-lilac-fringe', 'A lilac and white striped pareo with aqua bands and knotted fringe, close up', '50% 50%'], page: ['pareo-pink-garden', 'A pink striped pareo hanging under a garden awning', '50% 40%'], photo: 'striped-sea', alt: 'A striped flat-woven cotton towel laid on rocks by the sea', brief: 'Your own: pareo with fringed ends, hung or folded',
     lead: 'Dobby and jacquard pareo with fringed ends.',
     spec: [['Sizes', fill('size list')], ['Weaves', 'Dobby, jacquard'], ['Finish', fill('fringe and hem options')], ['Minimum order', fill('MOQ per design')]] },
 ];
+const famCard = (f, sizes = '(min-width: 90rem) 440px, (min-width: 60rem) 30vw, (min-width: 40rem) 50vw, 100vw') => real(f.card[0], f.card[1], { pos: f.card[2], sizes });
+export { famCard };
+// Home hero: the range in three photographs, one tint for the group (the teal the robe and towel share).
+export const M1_SIZES = '(min-width: 60rem) 28vw, 50vw';
+export const MOSAIC_EN = [
+  'A couple in matching teal striped bathrobes on a white sofa',
+  'A folded teal bath towel with a band of woven dots',
+  'Plush white hotel towels folded in a stack, close up',
+];
+export const heroMosaic = (alts) => `<div class="hero__mosaic" data-tint="200 0.065">
+      ${real('robe-couple-sofa', alts[0], { cls: 'm m1', eager: 'lcp', pos: '50% 30%', sizes: M1_SIZES })}
+      ${real('bath-teal-dots', alts[1], { cls: 'm m2', eager: true, sizes: '(min-width: 60rem) 24vw, 50vw' })}
+      ${real('stock-hotel-spa', alts[2], { cls: 'm m3', eager: true, pos: '50% 50%', sizes: '(min-width: 60rem) 24vw, 50vw' })}
+    </div>`;
 export const famHref = (f) => f.href || `/products/${f.slug}/`;
 
 const ORG = {
@@ -53,25 +67,22 @@ export function pages() {
   {
     const p = newPage({ path: '/', lang: 'en', nav: '/', title: 'Egyptian Towel Manufacturer for Private Label | Aktan Misr',
       description: 'Egyptian towel manufacturer in El-Mahalla El-Kubra since 1956. Private-label towels and bathrobes in 100% Egyptian cotton, woven, dyed and finished in our own mill.',
-      alternates: { ar: '/ar/' }, ld: ORG, preload: 'monogram' });
+      alternates: { ar: '/ar/' }, ld: ORG, preload: ['robe-couple-sofa', M1_SIZES], css: ['/assets/scroll.css'] });
     p.body = `
-<section class="hero" aria-labelledby="hero-h" style="padding-top: var(--space-2xl)">
+<section class="hero hero--mosaic" aria-labelledby="hero-h">
   <div class="container grid">
     <div class="hero__text">
       <h1 id="hero-h">Egyptian towel manufacturer for your label</h1>
       <p class="lead">Towels and bathrobes woven, dyed and finished for your brand since 1956.</p>
       <div class="hero__actions">${quoteCta('buyer=private-label')}<a class="link" href="/private-label/">How private label works</a></div>
     </div>
-    <div class="hero__pic">
-      ${pic(p, 'monogram', 'Folded grey terry towels, the top one embroidered with a monogram and a sewn-in label', 'Your own: a private-label towel set with a client-style woven label and jacquard logo, studio light', { eager: true })}
-      <p class="caption"><span>Your design, colour and label</span><span>100% Egyptian cotton</span></p>
-    </div>
+    ${heroMosaic(MOSAIC_EN)}
   </div>
 </section>
 
 <section aria-labelledby="pl-h">
   <div class="container split">
-    ${pic(p, 'towels-shelf', 'Folded terry towels in mauve and grey on a wooden shelf', 'Your own: a finished private-label order, folded and banded, ready to pack')}
+    ${real('kitchen-hanging-trio', 'Three printed tea towels hanging on a rail above a stack of folded towels', { pos: '50% 0%', tint: true })}
     <div>
       <h2 id="pl-h">Your brand, made in our mill</h2>
       <p class="lead">Importers and retail brands send us a brief. We weave, dye, finish and pack it under their name.</p>
@@ -85,16 +96,25 @@ export function pages() {
   </div>
 </section>
 
-<section aria-labelledby="mill-h">
-  <div class="container">
-    <div class="head head--split"><h2 id="mill-h">What one mill controls</h2><p class="lead">Weaving, dyeing, finishing and packing happen under one roof in El-Mahalla El-Kubra.</p></div>
-    <ol class="steps" style="--n: 4">
-      <li><h3>Weaving</h3><p>Terry, velour, waffle, dobby and jacquard.</p></li>
-      <li><h3>Dyeing</h3><p>Yarn- or piece-dyed in our own dye house.</p></li>
-      <li><h3>Finishing</h3><p>Cut, hemmed and double stitched.</p></li>
-      <li><h3>Packing</h3><p>Inspected and packed for export.</p></li>
-    </ol>
-    <p style="margin-top: var(--space-xl)"><a class="link" href="/manufacturing/">See how it is made</a></p>
+<section class="band chapter" aria-labelledby="mill-h" data-chapter>
+  <div class="container chapter__stage">
+    <div class="chapter__text">
+      <div class="head head--split"><h2 id="mill-h">What one mill controls</h2><p class="lead">Weaving, dyeing, finishing and packing happen under one roof in El-Mahalla El-Kubra.</p></div>
+      <ol class="steps" style="--n: 4">
+        <li><h3>Weaving</h3><p>Terry, velour, waffle, dobby and jacquard.</p></li>
+        <li><h3>Dyeing</h3><p>Yarn- or piece-dyed in our own dye house.</p></li>
+        <li><h3>Finishing</h3><p>Cut, hemmed and double stitched.</p></li>
+        <li><h3>Packing</h3><p>Inspected and packed for export.</p></li>
+      </ol>
+      <div class="chapter__rail" aria-hidden="true"><i></i><i></i><i></i><i></i></div>
+      <p class="chapter__more"><a class="link" href="/manufacturing/">See how it is made</a></p>
+    </div>
+    <div class="chapter__pics" aria-hidden="true">
+      ${real('bath-navy-rust-rail', '', { pos: '50% 40%', sizes: '(min-width: 60rem) 60vw, 1px' })}
+      ${real('bath-flora-stack', '', { pos: '50% 45%', sizes: '(min-width: 60rem) 60vw, 1px' })}
+      ${real('kitchen-teacup-waffle', '', { pos: '50% 40%', sizes: '(min-width: 60rem) 60vw, 1px' })}
+      ${real('stock-hotel-jacquard', '', { sizes: '(min-width: 60rem) 60vw, 1px' })}
+    </div>
   </div>
 </section>
 
@@ -102,13 +122,13 @@ export function pages() {
   <div class="container">
     <div class="head head--split"><h2 id="range-h">Six families to start from</h2><p class="lead">Each one takes your design, colour and label.</p></div>
     <div class="families">
-      ${FAMILIES.map((f) => `<a href="${famHref(f)}">${pic(p, f.photo, f.alt, f.brief)}<h3>${f.name}</h3><p>${f.weaves}</p></a>`).join('\n      ')}
+      ${FAMILIES.map((f) => `<a href="${famHref(f)}">${famCard(f)}<h3>${f.name}</h3><p>${f.weaves}</p></a>`).join('\n      ')}
     </div>
   </div>
 </section>
 
-<section class="bleed" aria-label="The mill">
-  ${pic(p, 'looms', 'Rows of industrial looms in a textile mill', 'Your own: the loom hall at El-Mahalla El-Kubra, wide, working', { cls: 'ph-bleed' })}
+<section class="bleed" aria-label="Jacquard and waffle kitchen towels">
+  ${real('kitchen-aloe-set', 'Aloe-print jacquard and waffle kitchen towels, one gift-wrapped, beside a stone teapot and cups', { cls: 'ph-bleed', pos: '50% 45%', sizes: '100vw', tint: true })}
   <div class="container"><div class="plate"><p>Woven, dyed and finished in El‑Mahalla El‑Kubra.</p><small>About 10 tons of finished goods a day.</small></div></div>
 </section>
 
@@ -124,8 +144,8 @@ export function pages() {
   <div class="container">
     <div class="head"><h2 id="buyers-h">Also for hotels and distributors</h2></div>
     <div class="buyers">
-      <article>${pic(p, 'white-stack', 'A stack of clean white terry towels', 'Your own: white hotel towels on a housekeeping trolley')}<h3>Hotels and spas</h3><p>White or house-colour towels and robes, double stitched for laundering.</p><a class="link" href="/hotels/">Hotel towels</a></article>
-      <article>${pic(p, 'dyed-rolls', 'Rolled towels in blue and green, stacked', 'Your own: banded bundles and cartons ready to ship')}<h3>Distributors</h3><p>Catalogue lines or your own, in volume, from one mill.</p><a class="link" href="/distributors/">For distributors</a></article>
+      <article>${real('stock-hotel-bedside', 'White hotel towels with soap laid on a made bed', { pos: '50% 60%' })}<h3>Hotels and spas</h3><p>White or house-colour towels and robes, double stitched for laundering.</p><a class="link" href="/hotels/">Hotel towels</a></article>
+      <article>${real('fair-stand-shelves', 'Shelves of folded towels at the Aktan Misr trade-fair stand', { pos: '50% 50%' })}<h3>Distributors</h3><p>Catalogue lines or your own, in volume, from one mill.</p><a class="link" href="/distributors/">For distributors</a></article>
     </div>
   </div>
 </section>
@@ -177,7 +197,7 @@ export function pages() {
       </dl>
       <div class="actions">${quoteCta('buyer=private-label', 'Start a private-label quote')}<a class="link" href="/catalogue/">Catalogue</a></div>
     </div>
-    ${pic(p, 'monogram', 'Folded grey terry towels with an embroidered monogram and a sewn-in label', 'Your own: close-up of a woven client label and jacquard logo on a towel')}
+    ${real('kitchen-orange-chef', 'Two orange jacquard kitchen towels with a woven chef motif, hanging on hooks', { pos: '50% 40%', tint: true })}
   </div>
 </section>
 
@@ -215,7 +235,7 @@ export function pages() {
   <div class="container">
     <h2 id="fam-h" class="visually-hidden">Product families</h2>
     <div class="families">
-      ${FAMILIES.map((f) => `<a href="${famHref(f)}">${pic(p, f.photo, f.alt, f.brief)}<h3>${f.name}</h3><p>${f.weaves}</p></a>`).join('\n      ')}
+      ${FAMILIES.map((f) => `<a href="${famHref(f)}">${famCard(f)}<h3>${f.name}</h3><p>${f.weaves}</p></a>`).join('\n      ')}
     </div>
   </div>
 </section>
@@ -239,7 +259,7 @@ export function pages() {
     p.body = `${pageHead(f.name, f.lead, p.crumbs)}
 <section class="s-s" aria-labelledby="sp-h">
   <div class="container split">
-    ${pic(p, f.photo, f.alt, f.brief)}
+    ${real(f.page[0], f.page[1], { pos: f.page[2], eager: 'lcp', tint: true })}
     <div>
       <h2 id="sp-h">Specification</h2>
       <dl class="ruled" style="margin-top: var(--space-lg)">
@@ -254,7 +274,7 @@ export function pages() {
   <div class="container">
     <div class="head"><h2 id="more-h">Other families</h2></div>
     <div class="families">
-      ${FAMILIES.filter((x) => x !== f).slice(0, 3).map((x) => `<a href="${famHref(x)}">${pic(p, x.photo, x.alt, x.brief)}<h3>${x.name}</h3><p>${x.weaves}</p></a>`).join('\n      ')}
+      ${FAMILIES.filter((x) => x !== f).slice(0, 3).map((x) => `<a href="${famHref(x)}">${famCard(x)}<h3>${x.name}</h3><p>${x.weaves}</p></a>`).join('\n      ')}
     </div>
   </div>
 </section>`;
@@ -269,7 +289,7 @@ export function pages() {
     p.body = `${pageHead('Hotel towels from the mill', 'White or house-colour towels and robes, double stitched to last through laundering.', p.crumbs)}
 <section class="s-s" aria-labelledby="ht-h">
   <div class="container split">
-    ${pic(p, 'white-stack', 'A stack of clean white terry towels', 'Your own: white hotel towels with a dobby border, stacked on a trolley')}
+    ${real('stock-hotel-jacquard', 'White hotel towels with a woven border, folded in a stack', { pos: '50% 50%', eager: 'lcp', tint: true })}
     <div>
       <h2 id="ht-h">What hotels specify</h2>
       <dl class="ruled" style="margin-top: var(--space-lg)">
@@ -306,7 +326,7 @@ export function pages() {
     p.body = `${pageHead('Wholesale towels for distributors', 'Catalogue lines or your own, in volume, from one mill.', p.crumbs)}
 <section class="s-s" aria-labelledby="ds-h">
   <div class="container split">
-    ${pic(p, 'dyed-rolls', 'Rolled towels in blue and green, stacked', 'Your own: palletised cartons and banded towel bundles in the warehouse')}
+    ${real('fair-stand-robes-2', 'Bathrobes and a wall of folded towels at the Aktan Misr trade-fair stand', { pos: '50% 50%', eager: 'lcp', tint: true })}
     <div>
       <h2 id="ds-h">What distributors get</h2>
       <dl class="ruled" style="margin-top: var(--space-lg)">
@@ -365,17 +385,22 @@ ${stage(5, 'finishing', 'Industrial textile finishing machinery in a large hall'
     const p = newPage({ path: '/about/', lang: 'en', nav: '/about/', title: 'About Aktan Misr, previously Sehely Textile, since 1956',
       description: 'Aktan Misr Textile & Dyeing, known for decades as Sehely Textile, has woven towels in El-Mahalla El-Kubra since 1956 and exports to Europe, the Gulf and beyond.',
       crumbs: [['Home', '/'], ['About', '/about/']] });
-    p.body = `${pageHead('A towel mill in El-Mahalla El-Kubra since 1956', 'Known for decades as Sehely Textile; today Aktan Misr Textile &amp; Dyeing S.A.E.', p.crumbs)}
+    p.body = `${pageHead('Weaving towels in El-Mahalla El-Kubra since 1956', 'Known for decades as Sehely Textile; today Aktan Misr Textile &amp; Dyeing S.A.E.', p.crumbs)}
 <section class="s-s" aria-labelledby="hist-h">
   <div class="container year">
     <p class="year__num" aria-hidden="true">1956</p>
     <div class="prose">
       <h2 id="hist-h" class="visually-hidden">History</h2>
-      <p>The mill began weaving in El-Mahalla El-Kubra, Egypt's textile city, in 1956. ${fill('founding story, family generations')}</p>
+      <p>The mill began weaving in El-Mahalla El-Kubra, Egypt’s textile city, in 1956. ${fill('founding story, family generations')}</p>
       <p>Today it weaves, dyes and finishes towels, bathrobes and pareo for export, about 10 tons of finished goods a day.</p>
       <p>It ships to buyers in Italy, the United Kingdom, France, Spain, Greece, Australia and Morocco, among others. ${fill('full market list')}</p>
       <p>It exhibited at Heimtextil, Frankfurt, in 2025 and 2026.</p>
     </div>
+  </div>
+</section>
+<section aria-label="The mill at a trade fair">
+  <div class="container">
+    ${real('fair-stand-visitors', 'Visitors looking at towels and bathrobes on the Aktan Misr trade-fair stand', { cls: 'ph ph--wide', pos: '50% 50%', sizes: '(min-width: 90rem) 1312px, 100vw', tint: true })}
   </div>
 </section>`;
     out.push(p);
@@ -388,7 +413,7 @@ ${stage(5, 'finishing', 'Industrial textile finishing machinery in a large hall'
       crumbs: [['Home', '/'], ['Catalogue', '/catalogue/']] });
     p.body = `${pageHead('The catalogue', 'Every family with sizes, weights and weaves in one file. No form to fill in.', p.crumbs)}
 <section class="s-s" aria-labelledby="dl-h">
-  <div class="container"><div class="cat">${pic(p, 'colours', 'Folded towels in many colours on shelves', 'Your own: the catalogue cover, or the range laid out flat')}<div><h2 id="dl-h">Aktan Misr catalogue</h2><p>${fill('PDF to supply, with its size and date')}</p><div class="actions" style="justify-content: flex-start; margin-top: var(--space-lg)"><button class="btn" type="button" disabled>Download the PDF</button>${quoteCta('')}</div></div></div></div>
+  <div class="container"><div class="cat">${real('bath-rolled-blush', 'Rolled cream and blush towels with jacquard borders', { pos: '50% 50%', eager: 'lcp' })}<div><h2 id="dl-h">Aktan Misr catalogue</h2><p>${fill('PDF to supply, with its size and date')}</p><div class="actions" style="justify-content: flex-start; margin-top: var(--space-lg)"><button class="btn" type="button" disabled>Download the PDF</button>${quoteCta('')}</div></div></div></div>
 </section>`;
     out.push(p);
   }
@@ -476,7 +501,7 @@ export function quoteForm(lang) {
     : FAMILIES.map((f) => [f.slug, f.name]);
   const WEAVES = ar ? [['terry', 'تيري'], ['velour', 'قطيفة'], ['waffle', 'وافل'], ['dobby', 'دوبي'], ['jacquard', 'جاكار']] : [['terry', 'Terry'], ['velour', 'Velour'], ['waffle', 'Waffle'], ['dobby', 'Dobby'], ['jacquard', 'Jacquard']];
   const chips = (name, items, type = 'checkbox') => `<div class="chips">${items.map(([v, l], i) => `<input type="${type}" id="${name}-${v}" name="${name}" value="${v}"><label for="${name}-${v}">${l}</label>`).join('')}</div>`;
-  const qtys = ar ? ['أقل من 1,000', '1,000–5,000', '5,000–20,000', 'أكثر من 20,000'] : ['Under 1,000', '1,000–5,000', '5,000–20,000', 'Over 20,000'];
+  const qtys = ar ? ['أقل من 1,000', '1,000 إلى 5,000', '5,000 إلى 20,000', 'أكثر من 20,000'] : ['Under 1,000', '1,000 to 5,000', '5,000 to 20,000', 'Over 20,000'];
   return `<form class="form" data-quote novalidate action="#" method="post" aria-describedby="form-status"
   data-msg-required="${L.required}" data-msg-email="${L.emailBad}" data-msg-notsent="${L.notSent}" data-msg-fix="${L.fix}">
   <h2>${L.s1}</h2>

@@ -1,0 +1,67 @@
+/* The one scroll pattern: the mill chapter on the teal band (rebuilt 2026-11-27, third version).
+   Why this shape: a frozen pin with nothing moving reads as the page getting stuck, and a small photo box beside
+   long empty panels reads as broken. Here the stage is held for about two and a half screens, and every pixel of
+   scroll moves something: the photo opens from an inset frame to a full-height, edge-bleeding plate as the band
+   arrives; each next step's photo rises over the last from below; the photo drifts in slowly the whole time; a
+   four-part rail fills under the steps. site.js writes the progress (smoothed, so it glides rather than jitters)
+   into custom properties; this file only maps them to transform, opacity and clip-path.
+   Without script, under 60rem wide or 40rem tall, or with reduced motion, .is-live is never set and the band is
+   the plain four-step grid with no photos. */
+
+.chapter__pics, .chapter__rail { display: none; }
+.chapter__more { margin-top: var(--space-xl); }
+
+.chapter.is-live {
+  --bar-h: 76px;
+  --stage-h: calc(100svh - var(--bar-h));
+  height: calc(var(--stage-h) + var(--track, 250svh));
+  padding-block: 0;
+}
+.chapter.is-live .chapter__stage {
+  position: sticky; top: var(--bar-h); height: var(--stage-h); max-width: none;
+  /* text column lines up with the site container; the photo runs to the window's right edge */
+  padding-inline: max(var(--gutter), calc((100% - var(--container)) / 2 + var(--gutter))) 0;
+  display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); column-gap: var(--space-3xl); align-items: stretch;
+}
+
+/* left: head at the top, the current step big in the middle, rail and link at the foot */
+.chapter.is-live .chapter__text {
+  display: grid; grid-template-rows: auto 1fr auto auto; padding-block: var(--space-2xl) var(--space-xl); min-width: 0;
+}
+.chapter.is-live .head { display: block; margin-bottom: 0; }
+.chapter.is-live .head .lead { margin-top: var(--space-md); justify-self: start; max-width: 34ch; }
+.chapter.is-live .steps { display: grid; grid-template-columns: minmax(0, 1fr); align-content: center; }
+.chapter.is-live .steps li {
+  grid-area: 1 / 1; border-top: 0; padding-top: 0;
+  opacity: var(--v, 0); transform: translateY(calc(var(--d, 0) * 8px));
+  will-change: opacity, transform;
+}
+.chapter.is-live .steps li::before { font-size: clamp(4.5rem, 9vw, 8rem); line-height: 0.9; margin-bottom: var(--space-lg); }
+.chapter.is-live .steps h3 { font-size: var(--text-3xl); }
+.chapter.is-live .steps p { font-size: var(--text-lg); max-width: 30ch; margin-top: var(--space-sm); }
+
+.chapter.is-live .chapter__rail { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: var(--space-xs); }
+.chapter__rail i { display: block; height: 2px; background: color-mix(in oklab, var(--color-on-colour) 28%, transparent); position: relative; overflow: hidden; }
+.chapter__rail i::after {
+  content: ""; position: absolute; inset: 0; background: var(--color-on-colour);
+  transform-origin: left; transform: scaleX(var(--f, 0));
+}
+.chapter.is-live .chapter__more { margin-top: var(--space-lg); }
+
+/* right: the plate. Entry opens the frame (--in 0 to 1); each photo rises over the one before (--w) and drifts (--k). */
+.chapter.is-live .chapter__pics {
+  --o: calc(1 - var(--in, 1));
+  display: block; position: relative; height: 100%; overflow: hidden;
+  clip-path: inset(calc(var(--o) * 9%) calc(var(--o) * 9%) calc(var(--o) * 9%) calc(var(--o) * 3%) round calc(var(--o) * 14px));
+  will-change: clip-path;
+}
+.chapter.is-live .chapter__pics > [data-photo] {
+  position: absolute; inset: 0; aspect-ratio: auto;
+  clip-path: inset(calc((1 - var(--w, 0)) * 100%) 0 0 0);
+}
+.chapter.is-live .chapter__pics > [data-photo]:first-child { --w: 1; }
+.chapter.is-live .chapter__pics img {
+  width: 100%; height: 100%; object-fit: cover;
+  transform: translateY(calc((1 - var(--w, 1)) * 10%)) scale(calc(1.03 + var(--k, 0) * 0.07 + var(--o, 0) * 0.12));
+  will-change: transform;
+}
