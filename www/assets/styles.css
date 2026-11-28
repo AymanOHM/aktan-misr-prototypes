@@ -297,10 +297,6 @@ fieldset[aria-invalid="true"] .chips label { border-color: var(--color-error); }
 .sheet .hint { margin-top: var(--space-md); }
 @media (max-width: 60rem) { .sheet { position: static; } }
 
-/* staging note */
-.stage-note { background: var(--color-ink); color: var(--color-paper); font-size: var(--text-sm); }
-.stage-note .container { min-height: 36px; display: flex; align-items: center; }
-
 /* ---------- the mill's own photographs ----------
    Real photographs carry their own colour: no grade (the sepia unifier stays on the Unsplash stand-ins only). */
 [data-photo] { position: relative; background: var(--color-paper-2); }
@@ -352,8 +348,6 @@ fieldset[aria-invalid="true"] .chips label { border-color: var(--color-error); }
 }
 .bleed > [data-tint]::before { --sr: clamp(110px, 16vw, 220px); inset: calc(-1 * var(--sr)) 0; }
 [data-tint].is-tinted::before { opacity: 1; transform: none; }
-/* the bloom never paints over the staging note */
-.stage-note { position: relative; z-index: var(--z-raised); }
 @media (prefers-reduced-motion: reduce) { [data-tint]::before { transition: none; transform: none; } }
 .ph--wide { aspect-ratio: 16 / 9; }
 .pair { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--gap-columns); align-items: start; }
@@ -376,7 +370,7 @@ fieldset[aria-invalid="true"] .chips label { border-color: var(--color-error); }
 .link:hover, .prose a:hover { color: var(--color-thread); }
 .steps li::before { color: var(--color-thread); }
 .bar nav a:not(.btn)[aria-current="page"], .bar nav a:not(.btn):hover { border-color: var(--color-thread); }
-/* the header keeps fixed paper while the page washes under it */
+/* the header keeps fixed paper over the page */
 .bar { background: var(--color-bar); }
 
 /* one colour band */
@@ -396,4 +390,3 @@ fieldset[aria-invalid="true"] .chips label { border-color: var(--color-error); }
 .foot__statement a { text-decoration-color: var(--color-on-colour); }
 .foot li a:hover { color: var(--color-on-colour); text-decoration: underline; text-underline-offset: 0.25em; }
 .foot .fill { color: var(--color-on-colour); border-color: color-mix(in oklab, var(--color-on-colour) 70%, transparent); }
-@media (prefers-reduced-motion: reduce) { :root { transition: none; } }

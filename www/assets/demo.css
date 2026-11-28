@@ -58,9 +58,6 @@
 [data-bloom="4"] .bleed > [data-tint]::before { inset: -34% 0; }
 [data-bloom="2"] .bleed > [data-tint]::before, [data-bloom="3"] .bleed > [data-tint]::before { inset: -30% 0; }
 
-/* the bloom never paints over the staging note */
-.stage-note { position: relative; z-index: var(--z-raised); }
-
 /* ---------- demo panel ---------- */
 .demo-panel { position: fixed; inset-inline-end: var(--space-md); bottom: var(--space-md); z-index: var(--z-toast); display: grid; gap: var(--space-xs); padding: var(--space-sm) var(--space-md); background: var(--color-card); box-shadow: var(--shadow-card); font-size: var(--text-xs); max-width: calc(100vw - 2 * var(--space-md)); }
 .demo-panel summary { cursor: pointer; color: var(--color-muted); min-height: 28px; display: flex; align-items: center; }

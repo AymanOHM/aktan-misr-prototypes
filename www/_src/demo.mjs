@@ -5,7 +5,7 @@ import { writeFileSync, mkdirSync } from 'node:fs';
 import { dirname, join } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { render, real, newPage } from './lib.mjs';
-import { FAMILIES, famHref, quoteCta, evidenceRows } from './pages-en.mjs';
+import { FAMILIES, famHref, famCard, quoteCta, evidenceRows } from './pages-en.mjs';
 
 const root = join(dirname(fileURLToPath(import.meta.url)), '..');
 const p = newPage({ path: '/demo/', lang: 'en', nav: '/', title: 'Demo: hero and photo tint | Aktan Misr',
@@ -30,7 +30,7 @@ const closeHero = (key, first) => {
   <div class="container grid">
     ${heroText(key)}
     <div class="hero__pic">
-      ${real(name, alt, { eager: first, pos, sizes: heroSizes, tint: true })}
+      ${real(name, alt, { eager: first && 'lcp', pos, sizes: heroSizes, tint: true })}
       <p class="caption"><span>${cap}</span><span>100% Egyptian cotton</span></p>
     </div>
   </div>
@@ -42,22 +42,12 @@ const mosaicHero = (first) => `<section class="hero hero--mosaic" data-hero="mos
   <div class="container grid">
     ${heroText('mosaic')}
     <div class="hero__mosaic" data-tint="200 0.065">
-      ${real('robe-man-reading', 'A man in a teal patterned bathrobe reading by a window', { cls: 'm m1', eager: first, pos: '50% 30%', sizes: '(min-width: 60rem) 28vw, 50vw' })}
+      ${real('robe-man-reading', 'A man in a teal patterned bathrobe reading by a window', { cls: 'm m1', eager: first && 'lcp', pos: '50% 30%', sizes: '(min-width: 60rem) 28vw, 50vw' })}
       ${real('bath-teal-dots', 'A folded teal bath towel with a band of woven dots', { cls: 'm m2', eager: first, sizes: '(min-width: 60rem) 24vw, 50vw' })}
       ${real('stock-hotel-spa', 'Plush white hotel towels folded in a stack, close up', { cls: 'm m3', eager: first, pos: '50% 50%', sizes: '(min-width: 60rem) 24vw, 50vw' })}
     </div>
   </div>
 </section>`;
-
-// Each family gets one of the mill's own photographs (the hotel set is the one stock-looking shot we keep).
-const FAM_PHOTO = {
-  'bath-towels': ['bath-blue-jacquard', 'Royal blue jacquard bath towels hanging on a rail and folded in a stack', '50% 60%'],
-  bathrobes: ['robe-man-doorway', 'A man in a grey jacquard shawl-collar bathrobe standing in a doorway', '50% 30%'],
-  'hotel-towels': ['stock-hotel-jacquard', 'White hotel towels with a woven border, folded in a stack', '50% 50%'],
-  'kitchen-towels': ['kitchen-green-check', 'Green check and jacquard kitchen towels on a wooden box', '50% 50%'],
-  'beach-towels': ['beach-sun-closeup', 'Close-up of a velour beach towel printed with an orange sun and footprints on pink', '50% 40%'],
-  pareo: ['pareo-lilac-fringe', 'A lilac and white striped pareo with aqua bands and knotted fringe, close up', '50% 50%'],
-};
 
 p.body = `
 ${mosaicHero(true)}
@@ -98,7 +88,7 @@ ${closeHero('sun', false)}
   <div class="container">
     <div class="head head--split"><h2 id="range-h">Six families to start from</h2><p class="lead">Each one takes your design, colour and label.</p></div>
     <div class="families">
-      ${FAMILIES.map((f) => { const [n, alt, pos] = FAM_PHOTO[f.slug]; return `<a href="${famHref(f)}">${real(n, alt, { pos, sizes: '(min-width: 90rem) 440px, (min-width: 60rem) 30vw, (min-width: 40rem) 50vw, 100vw' })}<h3>${f.name}</h3><p>${f.weaves}</p></a>`; }).join('\n      ')}
+      ${FAMILIES.map((f) => `<a href="${famHref(f)}">${famCard(f)}<h3>${f.name}</h3><p>${f.weaves}</p></a>`).join('\n      ')}
     </div>
   </div>
 </section>

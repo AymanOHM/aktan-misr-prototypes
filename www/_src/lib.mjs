@@ -1,4 +1,4 @@
-import { readFileSync } from 'node:fs';
+import { readFileSync, existsSync } from 'node:fs';
 // Shared layout and helpers for the Aktan Misr static site.
 // Pages are plain functions returning { path, lang, title, description, body, ... }.
 // Run: node www/_src/build.mjs  (writes HTML into www/)
@@ -42,6 +42,8 @@ const COLORS = JSON.parse(readFileSync(new URL('../img/s/colors.json', import.me
 export function real(name, alt, { cls = 'ph', eager = false, pos = '', sizes = '(min-width: 90rem) 660px, (min-width: 60rem) 45vw, 100vw', tint = false } = {}) {
   const c = COLORS[name];
   if (!c) throw new Error('unknown photo ' + name);
+  for (const w of [800, 1600]) for (const ext of ['avif', 'webp'])
+    if (!existsSync(new URL(`../img/s/${name}-${w}.${ext}`, import.meta.url))) throw new Error(`missing image file img/s/${name}-${w}.${ext}`);
   const set = (ext) => c.widths.map((w, i) => `/img/s/${name}-${i ? 1600 : 800}.${ext} ${w}w`).join(', ');
   const tintAttr = tint ? ` data-tint="${typeof tint === 'object' ? `${tint.hue} ${tint.chroma}` : `${c.hue} ${c.chroma}`}"` : '';
   return `<div class="${cls}" data-photo="${esc(name)}"${tintAttr}><picture><source type="image/avif" srcset="${set('avif')}" sizes="${sizes}"><img src="/img/s/${name}-1600.webp" srcset="${set('webp')}" sizes="${sizes}" width="${c.w}" height="${c.h}" alt="${esc(alt)}"${eager ? (eager === 'lcp' ? ' fetchpriority="high"' : '') : ' loading="lazy" decoding="async"'}${pos ? ` style="object-position:${pos}"` : ''}></picture></div>`;
@@ -71,11 +73,9 @@ const NAV = {
 
 const T = {
   en: { skip: 'Skip to content', menu: 'Menu', quote: 'Request a quote', home: 'Aktan Misr Textile and Dyeing, home', sub: 'Textile &amp; Dyeing, previously Sehely',
-    stage: 'Staging build with marked placeholders. Not the live site.',
     statement: 'Write to export sales about <a href="/quote/">your next order</a>.',
     photos: 'Stand-in photographs', photoNote: 'to be replaced by photographs of the mill', unsplash: 'on Unsplash' },
   ar: { skip: 'انتقل إلى المحتوى', menu: 'القائمة', quote: 'اطلب عرض سعر', home: 'أكتان مصر للنسيج والصباغة، الصفحة الرئيسية', sub: 'للنسيج والصباغة ش.م.م | سهيلي للنسيج سابقاً',
-    stage: 'نسخة تجريبية بنصوص ناقصة محددة. ليست الموقع الفعلي. الترجمة مسودة تحتاج مراجعة.',
     statement: 'راسل قسم التصدير بشأن <a href="/ar/quote/">طلبيتك القادمة</a>.',
     photos: 'صور مؤقتة', photoNote: 'تُستبدل بصور المصنع', unsplash: 'على Unsplash' },
 };
@@ -90,7 +90,6 @@ function header(page) {
   const homeHref = page.lang === 'ar' ? '/ar/' : '/';
   const quoteHref = page.lang === 'ar' ? '/ar/quote/' : '/quote/';
   return `<a class="skip" href="#main">${t.skip}</a>
-${STAGING ? `<aside class="stage-note" aria-label="${page.lang === 'ar' ? 'تنبيه' : 'Staging notice'}"><div class="container"><span>${t.stage}</span></div></aside>` : ''}
 <header class="bar">
   <div class="container">
     <a class="wordmark" href="${homeHref}" aria-label="${t.home}">
@@ -132,7 +131,7 @@ function footer(page) {
 
 export function render(page) { return withBase(renderRaw(page)); }
 function renderRaw(page) {
-  const url = SITE + page.path;
+  const url = SITE + page.path, is404 = page.path === '/404.html';
   const alt = page.alternates || {};
   const hreflang = Object.keys(alt).length
     ? [`<link rel="alternate" hreflang="${page.lang}" href="${url}">`, ...Object.entries(alt).map(([l, p]) => `<link rel="alternate" hreflang="${l}" href="${SITE + p}">`), `<link rel="alternate" hreflang="x-default" href="${SITE + (page.lang === 'en' ? page.path : alt.en)}">`].join('\n')
@@ -148,15 +147,13 @@ function renderRaw(page) {
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-${STAGING ? '<meta name="robots" content="noindex, nofollow">\n' : ''}<title>${esc(page.title)}</title>
+${STAGING || is404 ? '<meta name="robots" content="noindex, nofollow">\n' : ''}<title>${esc(page.title)}</title>
 <meta name="description" content="${esc(page.description)}">
-<link rel="canonical" href="${url}">
-${hreflang}
+${is404 ? '' : `<link rel="canonical" href="${url}">\n`}${hreflang}
 <meta property="og:title" content="${esc(page.title)}">
 <meta property="og:description" content="${esc(page.description)}">
 <meta property="og:type" content="website">
-<meta property="og:url" content="${url}">
-<meta property="og:image" content="${SITE}/img/og-aktan-misr.jpg">
+${is404 ? '' : `<meta property="og:url" content="${url}">\n`}<meta property="og:image" content="${SITE}/img/og-aktan-misr.jpg">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta property="og:image:alt" content="${page.lang === 'ar' ? 'فوط مطبخ جاكار ووافل بنقشة الصبار' : 'Aloe-print jacquard and waffle kitchen towels from the Aktan Misr mill'}">

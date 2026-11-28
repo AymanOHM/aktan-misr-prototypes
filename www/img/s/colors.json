@@ -450,17 +450,6 @@
   "chroma": 0.034,
   "light": 0.666
  },
- "fair-stand-robes-2": {
-  "w": 1040,
-  "h": 780,
-  "widths": [
-   800,
-   1040
-  ],
-  "hue": 30,
-  "chroma": 0.035,
-  "light": 0.487
- },
  "fair-stand-pareo-wall": {
   "w": 780,
   "h": 1040,

@@ -41,17 +41,23 @@
       cur = cur ? { inn: cur.inn + (goal.inn - cur.inn) * a, s: cur.s + (goal.s - cur.s) * a } : goal;
       paint(cur);
       const settled = Math.abs(goal.s - cur.s) < 5e-4 && Math.abs(goal.inn - cur.inn) < 5e-4;
-      raf = (near || !settled) && chapter.classList.contains('is-live') ? requestAnimationFrame(tick) : 0;
+      // run only while gliding; a scroll near the section wakes the loop again
+      raf = !settled && chapter.classList.contains('is-live') ? requestAnimationFrame(tick) : 0;
       if (!raf) last = 0;
     };
     const wake = () => { if (!raf && chapter.classList.contains('is-live')) raf = requestAnimationFrame(tick); };
     new IntersectionObserver(([e]) => { near = e.isIntersecting; wake(); }, { rootMargin: '50% 0px' }).observe(chapter);
+    addEventListener('scroll', () => { if (near) wake(); }, { passive: true });
     const fit = () => { if (bar) chapter.style.setProperty('--bar-h', bar.offsetHeight + 'px'); };
     const setLive = () => {
       chapter.classList.toggle('is-live', mq.matches);
       chapter.style.setProperty('--track', SPAN * UNIT + 'svh');
       fit(); cur = null;
-      if (mq.matches) { paint(target()); wake(); }
+      if (mq.matches) {
+        // scroll drives these now: drop any reveal added while the section was static
+        $$('.reveal', chapter).forEach((el) => { el.classList.remove('reveal', 'is-in'); el.style.removeProperty('--i'); });
+        paint(target()); wake();
+      }
     };
     setLive();
     mq.addEventListener('change', setLive);
