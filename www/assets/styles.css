@@ -356,6 +356,9 @@ fieldset[aria-invalid="true"] .chips label { border-color: var(--color-error); }
 .stage-note { position: relative; z-index: var(--z-raised); }
 @media (prefers-reduced-motion: reduce) { [data-tint]::before { transition: none; transform: none; } }
 .ph--wide { aspect-ratio: 16 / 9; }
+.pair { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--gap-columns); align-items: start; }
+.pair .ph { aspect-ratio: 4 / 5; }
+@media (max-width: 40rem) { .pair { gap: var(--space-xs); } }
 @media (max-width: 40rem) { .ph--wide { aspect-ratio: 4 / 3; } }
 
 /* ---------- colour (2026-11-27: "the site is a little bland") ----------

@@ -43,72 +43,6 @@
   "chroma": 0.03,
   "light": 0.685
  },
- "robe-woman-lounge": {
-  "w": 849,
-  "h": 1200,
-  "widths": [
-   800,
-   849
-  ],
-  "hue": 115,
-  "chroma": 0.095,
-  "light": 0.619
- },
- "robe-couple-pool": {
-  "w": 849,
-  "h": 1200,
-  "widths": [
-   800,
-   849
-  ],
-  "hue": 187,
-  "chroma": 0.054,
-  "light": 0.675
- },
- "robe-couple-sofa": {
-  "w": 849,
-  "h": 1200,
-  "widths": [
-   800,
-   849
-  ],
-  "hue": 195,
-  "chroma": 0.061,
-  "light": 0.648
- },
- "robe-woman-books": {
-  "w": 849,
-  "h": 1200,
-  "widths": [
-   800,
-   849
-  ],
-  "hue": 54,
-  "chroma": 0.054,
-  "light": 0.617
- },
- "robe-woman-bed": {
-  "w": 849,
-  "h": 1200,
-  "widths": [
-   800,
-   849
-  ],
-  "hue": 35,
-  "chroma": 0.064,
-  "light": 0.672
- },
- "robe-woman-armchair": {
-  "w": 849,
-  "h": 1200,
-  "widths": [
-   800,
-   849
-  ],
-  "hue": 31,
-  "chroma": 0.083,
-  "light": 0.599
- },
  "bath-rolled-blush": {
   "w": 1600,
   "h": 846,
@@ -516,50 +450,6 @@
   "chroma": 0.034,
   "light": 0.666
  },
- "fair-stand-visitors": {
-  "w": 1040,
-  "h": 780,
-  "widths": [
-   800,
-   1040
-  ],
-  "hue": 304,
-  "chroma": 0.032,
-  "light": 0.71
- },
- "fair-stand-meeting": {
-  "w": 780,
-  "h": 1040,
-  "widths": [
-   780,
-   780
-  ],
-  "hue": 343,
-  "chroma": 0.031,
-  "light": 0.584
- },
- "fair-stand-shelves": {
-  "w": 1040,
-  "h": 780,
-  "widths": [
-   800,
-   1040
-  ],
-  "hue": 341,
-  "chroma": 0.026,
-  "light": 0.592
- },
- "fair-stand-robes": {
-  "w": 1040,
-  "h": 780,
-  "widths": [
-   800,
-   1040
-  ],
-  "hue": 350,
-  "chroma": 0.02,
-  "light": 0.637
- },
  "fair-stand-robes-2": {
   "w": 1040,
   "h": 780,
@@ -720,5 +610,27 @@
    "width": 1166,
    "height": 1458
   }
+ },
+ "fair-stand-open": {
+  "w": 874,
+  "h": 780,
+  "widths": [
+   800,
+   874
+  ],
+  "hue": 30,
+  "chroma": 0.035,
+  "light": 0.487
+ },
+ "fair-stand-racks": {
+  "w": 686,
+  "h": 1040,
+  "widths": [
+   686,
+   686
+  ],
+  "hue": 350,
+  "chroma": 0.028,
+  "light": 0.575
  }
 }

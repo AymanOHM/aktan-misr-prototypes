@@ -8,7 +8,7 @@ export function pages() {
   {
     const p = newPage({ path: '/ar/', lang: 'ar', nav: '/ar/', title: 'مصنع فوط قطن مصري للعلامات الخاصة | أكتان مصر',
       description: 'مصنع فوط وبرانس من القطن المصري 100% في المحلة الكبرى منذ 1956. ننسج ونصبغ ونجهّز بعلامتك التجارية الخاصة للتصدير.',
-      alternates: { en: '/' }, preload: ['robe-couple-sofa', M1_SIZES] });
+      alternates: { en: '/' }, preload: ['robe-man-reading', M1_SIZES] });
     p.body = `
 <section class="hero hero--mosaic" aria-labelledby="hero-h">
   <div class="container grid">
@@ -17,7 +17,7 @@ export function pages() {
       <p class="lead">فوط وبرانس تُنسج وتُصبغ وتُجهّز باسم علامتك منذ 1956.</p>
       <div class="hero__actions"><a class="btn btn--solid" href="/ar/quote/?buyer=private-label">اطلب عرض سعر</a><a class="link" href="/ar/private-label/">كيف تعمل العلامة الخاصة</a></div>
     </div>
-    ${heroMosaic(['زوجان يرتديان برنسين مخططين بلون تركوازي على أريكة بيضاء', 'فوطة حمام تركوازية مطوية بشريط منقط منسوج', 'فوط فندقية بيضاء مطوية في كومة، عن قرب'])}
+    ${heroMosaic(['رجل يرتدي برنساً بنقشة تركوازية يقرأ بجوار نافذة', 'فوطة حمام تركوازية مطوية بشريط منقط منسوج', 'فوط فندقية بيضاء مطوية في كومة، عن قرب'])}
   </div>
 </section>
 
@@ -38,7 +38,7 @@ export function pages() {
     <div class="head head--split"><h2 id="range-h">ست عائلات منتجات</h2><p class="lead">كل منها بتصميمك ولونك وعلامتك.</p></div>
     <div class="families">
       <div>${real('bath-blue-jacquard', 'فوط حمام جاكار زرقاء معلقة على حامل ومطوية في كومة', { pos: '50% 60%' })}<h3>فوط حمام ووجه</h3><p>تيري، قطيفة، حواف جاكار</p></div>
-      <div>${real('robe-woman-bed', 'امرأة ترتدي برنساً مربعات برتقالياً بقلنسوة جالسة على سرير', { pos: '50% 35%' })}<h3>برانس</h3><p>تيري، قطيفة، تيري جاكار</p></div>
+      <div>${real('robe-man-doorway', 'رجل يرتدي برنساً جاكار رمادياً بياقة شال واقفاً عند باب', { pos: '50% 30%' })}<h3>برانس</h3><p>تيري، قطيفة، تيري جاكار</p></div>
       <div>${real('stock-hotel-jacquard', 'فوط فندقية بيضاء بحافة منسوجة مطوية في كومة', { pos: '50% 50%' })}<h3>فوط فنادق</h3><p>تيري بخياطة مزدوجة</p></div>
     </div>
     <p style="margin-top: var(--space-xl)">ومنها أيضاً فوط المطبخ وفوط الشاطئ والباريو. <a class="link" href="/products/" lang="en" hreflang="en">Products (English)</a></p>

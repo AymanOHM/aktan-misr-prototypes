@@ -5,7 +5,7 @@ export const FAMILIES = [
   { slug: 'bath-towels', name: 'Bath and face towels', weaves: 'Terry, velour, dobby and jacquard borders', for: 'Retail brands, hotels', card: ['bath-blue-jacquard', 'Royal blue jacquard bath towels hanging on a rail and folded in a stack', '50% 60%'], page: ['bath-orange-squares', 'Orange and peach bath towels with a woven square border, folded', '85% 50%'], photo: 'colours', alt: 'Stacks of folded towels in red, pink, cream and brown on shelves', brief: 'Your own: bath towels in three colourways, folded, plain backdrop',
     lead: 'Face and bath towels in 100% Egyptian cotton, yarn- or piece-dyed, with your border or logo.',
     spec: [['Sizes', fill('size list')], ['Weight', fill('g/m² range')], ['Weaves', 'Terry, velour, dobby, jacquard border'], ['Dyeing', 'Yarn-dyed or piece-dyed, in our own dye house'], ['Minimum order', fill('MOQ per design and colour')]] },
-  { slug: 'bathrobes', name: 'Bathrobes', weaves: 'Terry, velour, jacquard terry', for: 'Retail brands, hotels, spas', card: ['robe-woman-bed', 'A woman in an orange check hooded bathrobe sitting on a bed', '50% 35%'], page: ['robe-man-reading', 'A man in a teal patterned bathrobe reading by a window', '50% 30%'], photo: 'bathrobes', alt: 'Two white terry bathrobes hanging on hooks in a bathroom', brief: 'Your own: shawl-collar and kimono robes on a plain wall',
+  { slug: 'bathrobes', name: 'Bathrobes', weaves: 'Terry, velour, jacquard terry', for: 'Retail brands, hotels, spas', card: ['robe-man-doorway', 'A man in a grey jacquard shawl-collar bathrobe standing in a doorway', '50% 30%'], page: ['robe-man-balcony', 'A man in a navy and teal patterned bathrobe on a balcony among plants', '50% 30%'], photo: 'bathrobes', alt: 'Two white terry bathrobes hanging on hooks in a bathroom', brief: 'Your own: shawl-collar and kimono robes on a plain wall',
     lead: 'Bathrobes in terry, velour or jacquard terry, made to your design and label.',
     spec: [['Styles', fill('styles offered')], ['Sizes', fill('size run')], ['Weight', fill('g/m² range')], ['Weaves', 'Terry, velour, jacquard terry'], ['Minimum order', fill('MOQ per style and colour')]] },
   { slug: 'hotel-towels', name: 'Hotel towels', weaves: 'Terry, double-stitched hems', for: 'Hotels, spas, distributors', card: ['stock-hotel-jacquard', 'White hotel towels with a woven border, folded in a stack', '50% 50%'], page: ['stock-hotel-bedside', 'White hotel towels with soap laid on a made bed', '50% 60%'], photo: 'white-stack', alt: 'A stack of clean white towels', brief: 'Your own: white hotel towels with a dobby border, stacked',
@@ -25,12 +25,12 @@ export { famCard };
 // Home hero: the range in three photographs, one tint for the group (the teal the robe and towel share).
 export const M1_SIZES = '(min-width: 60rem) 28vw, 50vw';
 export const MOSAIC_EN = [
-  'A couple in matching teal striped bathrobes on a white sofa',
+  'A man in a teal patterned bathrobe reading by a window',
   'A folded teal bath towel with a band of woven dots',
   'Plush white hotel towels folded in a stack, close up',
 ];
 export const heroMosaic = (alts) => `<div class="hero__mosaic" data-tint="200 0.065">
-      ${real('robe-couple-sofa', alts[0], { cls: 'm m1', eager: 'lcp', pos: '50% 30%', sizes: M1_SIZES })}
+      ${real('robe-man-reading', alts[0], { cls: 'm m1', eager: 'lcp', pos: '50% 30%', sizes: M1_SIZES })}
       ${real('bath-teal-dots', alts[1], { cls: 'm m2', eager: true, sizes: '(min-width: 60rem) 24vw, 50vw' })}
       ${real('stock-hotel-spa', alts[2], { cls: 'm m3', eager: true, pos: '50% 50%', sizes: '(min-width: 60rem) 24vw, 50vw' })}
     </div>`;
@@ -67,7 +67,7 @@ export function pages() {
   {
     const p = newPage({ path: '/', lang: 'en', nav: '/', title: 'Egyptian Towel Manufacturer for Private Label | Aktan Misr',
       description: 'Egyptian towel manufacturer in El-Mahalla El-Kubra since 1956. Private-label towels and bathrobes in 100% Egyptian cotton, woven, dyed and finished in our own mill.',
-      alternates: { ar: '/ar/' }, ld: ORG, preload: ['robe-couple-sofa', M1_SIZES], css: ['/assets/scroll.css'] });
+      alternates: { ar: '/ar/' }, ld: ORG, preload: ['robe-man-reading', M1_SIZES], css: ['/assets/scroll.css'] });
     p.body = `
 <section class="hero hero--mosaic" aria-labelledby="hero-h">
   <div class="container grid">
@@ -145,7 +145,7 @@ export function pages() {
     <div class="head"><h2 id="buyers-h">Also for hotels and distributors</h2></div>
     <div class="buyers">
       <article>${real('stock-hotel-bedside', 'White hotel towels with soap laid on a made bed', { pos: '50% 60%' })}<h3>Hotels and spas</h3><p>White or house-colour towels and robes, double stitched for laundering.</p><a class="link" href="/hotels/">Hotel towels</a></article>
-      <article>${real('fair-stand-shelves', 'Shelves of folded towels at the Aktan Misr trade-fair stand', { pos: '50% 50%' })}<h3>Distributors</h3><p>Catalogue lines or your own, in volume, from one mill.</p><a class="link" href="/distributors/">For distributors</a></article>
+      <article>${real('fair-stand-open', 'Racks of pareo and shelves of folded towels on the Aktan Misr trade-fair stand', { pos: '50% 50%' })}<h3>Distributors</h3><p>Catalogue lines or your own, in volume, from one mill.</p><a class="link" href="/distributors/">For distributors</a></article>
     </div>
   </div>
 </section>
@@ -326,7 +326,7 @@ export function pages() {
     p.body = `${pageHead('Wholesale towels for distributors', 'Catalogue lines or your own, in volume, from one mill.', p.crumbs)}
 <section class="s-s" aria-labelledby="ds-h">
   <div class="container split">
-    ${real('fair-stand-robes-2', 'Bathrobes and a wall of folded towels at the Aktan Misr trade-fair stand', { pos: '50% 50%', eager: 'lcp', tint: true })}
+    ${real('fair-stand-racks', 'Two racks of printed pareo and a pink flamingo pareo on the wall of the Aktan Misr trade-fair stand', { pos: '50% 50%', eager: 'lcp', tint: true })}
     <div>
       <h2 id="ds-h">What distributors get</h2>
       <dl class="ruled" style="margin-top: var(--space-lg)">
@@ -359,7 +359,7 @@ export function pages() {
 ${stage(1, 'yarn', 'Cones of cream cotton yarn stacked together', 'Your own: Egyptian cotton yarn cones in the yarn store', 'Yarn', '100% Egyptian cotton yarn, prepared for the warp.', [['Yarn counts', fill('to confirm')]], false)}
 ${stage(2, 'loom-threads', 'Close-up of warp threads on an industrial loom', 'Your own: a jacquard loom weaving a border, close', 'Design and weaving', 'Our graphic department draws your design for the jacquard looms.', [['Looms', fill('number and type of looms')], ['Weaves', 'Terry, velour, waffle, flat, dobby, jacquard']], true)}
 ${stage(3, 'dyed-rolls', 'Rolled towels in deep blue and green', 'Your own: the dye house, a dyeing machine and lab-dip bench', 'Dyeing', 'Shade and fastness are set in our own dye house, beside the looms.', [['Dye house', 'About 11,000 m²'], ['Methods', 'Yarn-dyed and piece-dyed']], false)}
-${stage(4, 'sewing', 'Workers hemming towels at sewing tables in a textile workshop', 'Your own: the finishing hall, hemming and labelling', 'Finishing', 'Cut, hemmed and double stitched; labels sewn in to your spec.', null, true)}
+${stage(4, 'monogram', 'Folded grey towels with a stitched hem and an embroidered monogram', 'Your own: the finishing hall, hemming and labelling', 'Finishing', 'Cut, hemmed and double stitched; labels sewn in to your spec.', null, true)}
 ${stage(5, 'finishing', 'Industrial textile finishing machinery in a large hall', 'Your own: inspection tables and the packing line', 'Inspection and packing', 'Inspected and packed for export: about 10 tons of finished goods a day.', [['Inspection method', fill('to confirm')]], false)}`;
     out.push(p);
   }
@@ -400,7 +400,10 @@ ${stage(5, 'finishing', 'Industrial textile finishing machinery in a large hall'
 </section>
 <section aria-label="The mill at a trade fair">
   <div class="container">
-    ${real('fair-stand-visitors', 'Visitors looking at towels and bathrobes on the Aktan Misr trade-fair stand', { cls: 'ph ph--wide', pos: '50% 50%', sizes: '(min-width: 90rem) 1312px, 100vw', tint: true })}
+    <div class="pair">
+      ${real('fair-stand-open', 'The Aktan Misr stand at Heimtextil: racks of pareo, tables and shelves of towels', { pos: '50% 50%', sizes: '(min-width: 90rem) 640px, 50vw', tint: true })}
+      ${real('fair-stand-racks', 'Racks of printed pareo and a flamingo pareo on the stand wall', { pos: '50% 50%', sizes: '(min-width: 90rem) 640px, 50vw' })}
+    </div>
   </div>
 </section>`;
     out.push(p);

@@ -42,7 +42,7 @@ const mosaicHero = (first) => `<section class="hero hero--mosaic" data-hero="mos
   <div class="container grid">
     ${heroText('mosaic')}
     <div class="hero__mosaic" data-tint="200 0.065">
-      ${real('robe-couple-sofa', 'A couple in matching teal striped bathrobes on a white sofa', { cls: 'm m1', eager: first, pos: '50% 30%', sizes: '(min-width: 60rem) 28vw, 50vw' })}
+      ${real('robe-man-reading', 'A man in a teal patterned bathrobe reading by a window', { cls: 'm m1', eager: first, pos: '50% 30%', sizes: '(min-width: 60rem) 28vw, 50vw' })}
       ${real('bath-teal-dots', 'A folded teal bath towel with a band of woven dots', { cls: 'm m2', eager: first, sizes: '(min-width: 60rem) 24vw, 50vw' })}
       ${real('stock-hotel-spa', 'Plush white hotel towels folded in a stack, close up', { cls: 'm m3', eager: first, pos: '50% 50%', sizes: '(min-width: 60rem) 24vw, 50vw' })}
     </div>
@@ -52,7 +52,7 @@ const mosaicHero = (first) => `<section class="hero hero--mosaic" data-hero="mos
 // Each family gets one of the mill's own photographs (the hotel set is the one stock-looking shot we keep).
 const FAM_PHOTO = {
   'bath-towels': ['bath-blue-jacquard', 'Royal blue jacquard bath towels hanging on a rail and folded in a stack', '50% 60%'],
-  bathrobes: ['robe-woman-bed', 'A woman in an orange check hooded bathrobe sitting on a bed', '50% 35%'],
+  bathrobes: ['robe-man-doorway', 'A man in a grey jacquard shawl-collar bathrobe standing in a doorway', '50% 30%'],
   'hotel-towels': ['stock-hotel-jacquard', 'White hotel towels with a woven border, folded in a stack', '50% 50%'],
   'kitchen-towels': ['kitchen-green-check', 'Green check and jacquard kitchen towels on a wooden box', '50% 50%'],
   'beach-towels': ['beach-sun-closeup', 'Close-up of a velour beach towel printed with an orange sun and footprints on pink', '50% 40%'],
@@ -121,7 +121,7 @@ ${closeHero('sun', false)}
     <div class="head"><h2 id="buyers-h">Also for hotels and distributors</h2></div>
     <div class="buyers">
       <article>${real('stock-hotel-bedside', 'White hotel towels with soap laid on a made bed', { pos: '50% 60%' })}<h3>Hotels and spas</h3><p>White or house-colour towels and robes, double stitched for laundering.</p><a class="link" href="/hotels/">Hotel towels</a></article>
-      <article>${real('fair-stand-shelves', 'Shelves of folded towels at the Aktan Misr trade-fair stand', { pos: '50% 50%' })}<h3>Distributors</h3><p>Catalogue lines or your own, in volume, from one mill.</p><a class="link" href="/distributors/">For distributors</a></article>
+      <article>${real('fair-stand-open', 'Racks of pareo and shelves of folded towels on the Aktan Misr trade-fair stand', { pos: '50% 50%' })}<h3>Distributors</h3><p>Catalogue lines or your own, in volume, from one mill.</p><a class="link" href="/distributors/">For distributors</a></article>
     </div>
   </div>
 </section>

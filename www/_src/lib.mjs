@@ -20,10 +20,8 @@ export const PHOTOS = {
   'striped-stack': { w: 1600, h: 2322, by: 'Setyaki', u: 'setyaki' },
   colours: { w: 1600, h: 1021, by: 'Candelarms', u: 'candelarms' },
   'dyed-rolls': { w: 1600, h: 1067, by: 'Lensyfoxography', u: 'lensyfoxography' },
-  looms: { w: 1600, h: 900, by: 'Ryo Harianto', u: 'ryohariantoo' },
   'loom-threads': { w: 1600, h: 1061, by: 'Bergstrand', u: 'bergstrand' },
   yarn: { w: 1600, h: 2400, by: 'Atmos', u: '___atmos' },
-  sewing: { w: 1600, h: 1067, by: 'Equal Stock', u: 'equalstock' },
   finishing: { w: 1600, h: 755, by: 'Lalit Kumar', u: 'klalit' },
 };
 
